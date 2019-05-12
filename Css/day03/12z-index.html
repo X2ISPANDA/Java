@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>z-index</title>
+    <style>
+        .div1{
+            width: 100px;
+            height: 100px;
+            background-color: chocolate;
+
+        }
+
+        .div2{
+            width: 200px;
+            height: 200px;
+            background-color: darkorange;
+            position: relative;
+            top: -50px;
+            left: 50px;
+            z-index: -1;
+        }
+    </style>
+</head>
+<body>
+    <div class="div1"></div>
+    <div class="div2"></div>
+</body>
+</html>

@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>伪元素选择器</title>
+    <style>
+        p:first-letter{
+            color:red;
+            font-size: 20pt;
+            font-weight: bolder;
+        }
+        p:first-line{
+            color:blue;
+        }
+        p:before{
+            content: '好好学习';
+            color:yellow;
+        }
+        p:after{
+            content: '天天向上';
+            color: purple;
+        }
+    </style>
+</head>
+<body>
+     <p>
+         习近平在主持学习时发表了讲话。他指出，今年是五四运动100周年。
+         安排这次中央政治局集体学习，目的是重温100年前那段激情燃烧的岁月，
+         加深对五四运动历史意义和时代价值的认识。
+     </p>
+</body>
+</html>

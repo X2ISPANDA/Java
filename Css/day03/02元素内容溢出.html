@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>元素内容溢出</title>
+    <style>
+        div{
+            width: 100px;
+            height: 100px;
+            background-color: aqua;
+            /*overflow：visible：默认是visible，不显示滚动条，内容会超出边框显示
+               overflow：hidden：内容会被修剪，其余内容是不可见了
+               overflow：scroll：不管内容显示不显示都有滚动条
+               overflow：auto：内容溢出才有滚动条，否则没有滚动条
+            */
+            overflow: scroll;/*溢出overflow-x，横轴溢出overflow-y纵轴溢出*/
+        }
+    </style>
+</head>
+<body>
+    <div>
+        在发表主旨演讲时，习近平表示，共建“一带一路”不仅为世界各国发展提供了新机遇，也为中国开放发展开辟了新天地。面向未来，习近平强调，要秉持共商共建共享原则，坚持开放、绿色、廉洁理念，努力实现高标准、惠民生、可持续目标，推动共建“一带一路”沿着高质量发展方向不断前进。
+    </div>
+    <div>
+        12121111111111111111111111111111111111111
+    </div>
+</body>
+</html>
