@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Date</title>
+    <script>
+        const date = new Date();
+        alert(date);
+        var weekday = new Array(7);
+        weekday[0] = "Sunday";
+        weekday[1] = "Monday";
+        weekday[2] = "Tuesday";
+        weekday[3] = "Wednesday";
+        weekday[4] = "Thursday";
+        weekday[5] = "Friday";
+        weekday[6] = "Saturday";
+        document.write(date.getFullYear() + "年"
+            + (date.getMonth() + 1) +"月"+
+            date.getDate()+"日"+
+            weekday[date.getDay()]);
+
+        const a = 88;
+        const b = 88;
+        document.write(a > b ? alert("a>b") : a == b ? alert("a=b") : alert("a<b"));
+    </script>
+</head>
+<body>
+
+</body>
+</html>

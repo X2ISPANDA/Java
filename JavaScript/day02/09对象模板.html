@@ -1,0 +1,35 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>基于构造函数创建的对象</title>
+    <script>
+        /*构造函数的定义*/
+        var MyObject = function (name, age) {
+            /*定义的属性*/
+            this.name = name;
+            this.age = age;
+            /*定义的行为*/
+            this.info = function () {
+                document.write("该生的姓名是:" + name + "<br/>年龄:" + age);
+
+            };
+        };
+        /*依据构造函数创建对象*/
+        var obj = new MyObject();
+        /*怎么调用*/
+        document.write(obj.name);
+        document.write("<br/>");
+        document.write(obj.info());
+
+        var a = function () {
+
+
+        };
+
+    </script>
+</head>
+<body>
+
+</body>
+</html>

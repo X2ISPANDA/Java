@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>案例</title>
+    <script>
+        var idCard = "430923199803021417";
+        document.write(idCard.substr(10, 4)+"<br/>");
+        var str2="《教父》，《肖申克的救赎》，《卡萨布兰卡》，《教父续集》，《七武士》".split("，");
+
+        for (i in str2) {
+            document.write(str2[i]);
+            document.write("<br/>");
+        }
+
+        const str3 = "时间抓起来说是金子，抓不住就是流水。";
+        const arr3 = new Array();
+        arr3[0]=str3.substring(7,9);
+        arr3[1] = str3.substring(15, 17);
+        document.write(arr3)
+    </script>
+</head>
+<body>
+
+</body>
+</html>
