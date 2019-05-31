@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>全选和反选</title>
+    <script>
+        function checkAll() {
+            //1.获取ckAll这个节点的状态
+            var node = document.getElementById("ckAll");
+            //2.获取所有要操作的复选框
+            var nodes = document.getElementsByName("ck");
+            //3.遍历nodes
+            for (var i = 0; i < nodes.length; i++) {
+                nodes[i].checked = node.checked;
+            }
+        }
+
+        function f() {
+            //1.获取ckAll这个节点的状态
+            var node = document.getElementById("ckAll");
+            //2.获取所有要操作的复选框
+            var nodes = document.getElementsByName("ck");
+            //3.遍历nodes
+            for (var i = 0; i < nodes.length; i++) {
+                nodes[i].checked = !nodes[i].checked;
+            }
+        }
+    </script>
+</head>
+<body>
+<table border="1px">
+    <tr>
+        <th><input type="checkbox" name="all" id="ckAll" onclick="f();"></th>
+        <th>姓名</th>
+        <th>年龄</th>
+        <th>电话</th>
+    </tr>
+    <tr>
+        <td><input type="checkbox" name="ck"></td>
+        <td>张三丰</td>
+        <td>120</td>
+        <td>13333333333</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" name="ck"></td>
+        <td>张三丰</td>
+        <td>120</td>
+        <td>13333333333</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" name="ck"></td>
+        <td>张三丰</td>
+        <td>120</td>
+        <td>13333333333</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" name="ck"></td>
+        <td>张三丰</td>
+        <td>120</td>
+        <td>13333333333</td>
+    </tr>
+    <tr>
+        <td><input type="checkbox" name="ck"></td>
+        <td>张三丰</td>
+        <td>120</td>
+        <td>13333333333</td>
+    </tr>
+</table>
+</body>
+</html>

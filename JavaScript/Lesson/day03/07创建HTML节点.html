@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>创建HTML节点</title>
+    <script>
+        function createNode() {
+            var textNode = document.createTextNode("div里的内容");
+            var divNode = document.getElementById("div0");
+            divNode.appendChild(textNode);
+        }
+
+        function createEle() {
+            //创建span元素
+            var spanNode = document.createElement("span");
+            //创建文本节点
+            var textNode = document.createTextNode("span里的内容");
+            spanNode.appendChild(textNode);
+            spanNode.setAttribute("style", "background-color:yellow");
+            spanNode.style.color = "red";
+            //文本节点放入到span元素里
+            var divNode = document.getElementById("div0");
+            divNode.appendChild(spanNode);
+        }
+
+        function removeNode() {
+            var ulNode = document.getElementById("ulParent");
+            ulNode.removeChild(ulNode.childNodes[0]);
+        }
+
+        function insertNode() {
+            var ulNode = document.getElementById("ulParent");
+            var node = document.createElement("li");
+            var textNode = document.createTextNode("我是插入的节点");
+            node.appendChild(textNode);
+            node.setAttribute("style","list-style-type:none");
+            ulNode.insertBefore(node,ulNode.childNodes[2]);
+        }
+
+        function replaceNode() {
+            var spanNode = document.getElementById("span");
+            var node = document.createElement("div");
+            var textNode = document.createTextNode("我是替换的节点");
+            node.appendChild(textNode);
+            document.body.replaceChild(node,spanNode);
+        }
+
+
+    </script>
+</head>
+<body>
+    <div id="div0">我是div</div>
+    <input type="button" value="创建文本节点" onclick="createNode()"/>
+    <input type="button" value="创建元素节点" onclick="createEle()"/>
+    <input type="button" value="移除节点" onclick="removeNode()"/>
+    <input type="button" value="插入节点" onclick="insertNode()"/>
+    <input type="button" value="替换节点" onclick="replaceNode()"/>
+    <ul id="ulParent">
+        <li>列表1</li>
+        <li id="li2">列表2</li>
+        <li>列表3</li>
+        <li>列表4</li>
+    </ul>
+
+    <span id="span">这是个span</span>
+    <a href="06脚本化事件.html">前进</a>
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>函数内的this关键字</title>
+    <script>
+
+        var name;
+
+        function f(name) {
+            this.name = name;
+        }
+2
+        f("张三");/*函数内的this指谁调用的这个函数,this就指谁,但是这而是window对象调用*/
+        alert(name);
+        for (; ;) {
+            for (; ;) {
+                for (; ;) {
+                }
+            }
+        }
+    </script>
+</head>
+<body>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>浏览器对话框</title>
+    <script>
+        alert(1);
+        if (confirm("你好吗")) {
+            alert("你很好");
+        } else {
+            alert("你不好");
+        }
+        alert(prompt("请输入密码"));
+
+        function fun() {
+            window.location.href = "http://www.iqiyi.com";
+        }
+    </script>
+</head>
+<body>
+<input type="button" onclick="fun();" value="爱奇艺"/>
+</body>
+</html>

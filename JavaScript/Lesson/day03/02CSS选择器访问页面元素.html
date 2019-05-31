@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>CSS选择器访问页面元素</title>
+    <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+    <script>
+        function f() {
+            //只获取第一个
+            var divNode=document.querySelector(".div0");
+            console.log(divNode.innerHTML);
+
+            //获取所有的
+            var divNodes = document.querySelectorAll(".div0");
+            console.log(divNodes[2].innerHTML);
+
+            var textNode = document.querySelectorAll("[type='text']");
+            console.log(textNode);
+        }
+
+
+    </script>
+
+</head>
+<body>
+    <div class="div0">这是个div1</div>
+    <div class="div0">这是个div2</div>
+    <div class="div0">这是个div3</div>
+
+    <input type="button" value="按钮" onclick="f();">
+    <input type="text" value="文本框">
+</body>
+</html>

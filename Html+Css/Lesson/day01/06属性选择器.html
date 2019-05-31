@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>属性选择器</title>
+    <style>
+        /*div中class等于div0的div元素被选中*/
+        div[class='div0']{
+            width: 100px;height: 100px;background-color: aqua;
+        }
+        /*div中class以div开头的div元素被选中*/
+        div[class^='div']{
+            width: 80px;height: 80px;background-color: red;
+        }
+        /*div中class以1结尾的div元素被选中*/
+        div[class$='1']{
+            background-color: blue;
+        }
+        /*div中class属性包含v的div元素被选中*/
+        div[class*='v']{
+            background-color: yellow;
+        }
+    </style>
+</head>
+<body>
+    <div class="div0">这是个div元素1</div>
+    <div class="div0">这是个div元素2</div>
+    <div class="div1">这是个div元素3</div>
+    <p class="di">这是个p元素</p>
+</body>
+</html>

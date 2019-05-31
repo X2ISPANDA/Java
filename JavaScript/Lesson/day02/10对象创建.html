@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>对象的创建</title>
+    <script>
+        /*对象的创建的第一种方式*/
+        var MyObject = function () {
+            this.name = "zs";
+            this.age = 12;
+            this.info = function () {
+                alert(this.name);
+            };
+        };
+
+        /*调用*/
+        var obj = new MyObject();
+        alert(obj.name);
+
+        /*对象创建的第二种方式*/
+        var obj2 = new Object();
+        obj2.name = "lisi";
+        obj2.b = function () {
+            alert("aaa");
+        };
+        obj2.b();
+
+        /*对象创建的第三种方式*/
+        /*json串*/
+        var stu = {"sno": "1",
+            "sname": "赵四",
+            "class": {"cno":"1607094151", "cname": "物联网一班"}};
+        alert(stu.class.cno);
+
+        var clazz = {
+            "cno": "16070942",
+            "cname": "物联网二班",
+            "stu": [{"sno": "1607094201", "sname": "肖浩锋", "age": 44},
+                {"sno": "1607094202", "sname": "卢辉", "age": 55}]
+
+        };
+
+        alert(clazz.stu[0].age);
+    </script>
+</head>
+<body>
+
+</body>
+</html>

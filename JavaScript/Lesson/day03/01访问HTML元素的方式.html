@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>访问HTML元素的方式</title>
+    <script>
+        window.onload=function () {
+            // 1.通过id获取页面的元素
+            var divNode = document.getElementById("div0");
+            console.log(divNode.innerHTML);
+            var username = document.getElementById("username");
+            console.log(username.value);
+            console.log(username.type);
+
+            console.log("=========");
+            /*2.通过class名称获取html中的元素*/
+            var divs = document.getElementsByClassName("divClass");
+            for (let i = 0; i < divs.length; i++) {
+                console.log(divs[i].innerText);
+            }
+
+            //3.通过name获取页面元素
+            var sexNode = document.getElementsByName("sex");
+            for (var i = 0; i < sexNode.length; i++) {
+                if (sexNode[i].checked) {
+                    alert(sexNode[i].value);
+                }
+            }
+
+            // 4.通过标签名获取页面元素
+            var inputNode = document.getElementsByTagName("input");
+            for (let i = 0; i < inputNode.length; i++) {
+                console.log(inputNode[i].value);
+            }
+        }
+    </script>
+</head>
+<body>
+    <div id="div0" class="divClass">这是一个div</div>
+    用户名:<input type="text" id="username" name="username" value="zs"><br/>
+    <div class="divClass" id="div1">這是一個div2</div>
+    性别:<input type="radio" name="sex" value="female" checked>女
+        <input type="radio" name="sex" value="male">男
+</body>
+</html>

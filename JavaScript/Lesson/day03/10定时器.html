@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>定时器</title>
+    <script>
+        window.onload = function () {
+            var str = document.getElementById("span0").innerHTML;
+            var timing=setInterval(function () {
+                start=str.substr(0, 1);
+                end = str.substr(1, str.length - 1);
+                str = end + start;
+                document.getElementById("span0").innerHTML = str;
+            },200);
+
+            document.getElementById("btn").onclick = function () {
+                clearInterval(timing);
+            };
+
+        };
+    </script>
+</head>
+<body>
+    <span id="span0">你好!美女</span>
+    <input id="btn" type="button" value="停止"/>
+</body>
+</html>

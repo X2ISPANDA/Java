@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>absolute</title>
+    <style>
+        /*absolute:生成绝对定位的元素，相对于 static 定位以外的第一个父元素进行定位。*/
+        .father{
+            width: 500px;
+            height: 500px;
+            background-color: darkgray;
+            position:relative;
+        }
+
+        .son1{
+            width: 300px;
+            height: 300px;
+            background-color: seagreen;
+        }
+
+        .son2{
+            width: 100px;
+            height: 100px;
+            background-color: slategray;
+            position: absolute;
+            right: 100px;
+            top: 0px;
+
+        }
+    </style>
+</head>
+<body>
+    <div class="father">
+        <div class="son1"></div>
+        <div class="son2"></div>
+    </div>
+</body>
+</html>

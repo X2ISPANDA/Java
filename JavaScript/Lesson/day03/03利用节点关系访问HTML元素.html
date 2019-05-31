@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>利用节点关系访问HTML元素</title>
+    <script>
+        window.onload = function () {
+            /*注意空白部分有的浏览器会解析成空白节点*/
+            var li1Node = document.getElementById("li1");
+            var li2Node = document.getElementById("li2");
+            var pnode = li2Node.parentNode;
+            console.log(pnode);
+
+            var childNode = pnode.childNodes;
+            console.log(childNode);
+
+            var preNode = li2Node.previousSibling;
+            console.log(preNode);
+
+            var nextNode = li2Node.nextSibling;
+            console.log(nextNode);
+
+            var firstNode = pnode.firstChild;
+            console.log(firstNode);
+
+            var lastNode = pnode.lastChild;
+            console.log(lastNode);
+        };
+    </script>
+</head>
+<body>
+    <ul>
+        <li class="li1">列表1</li><li id="li2">列表2</li><li>列表3</li>
+        <li>列表4</li>
+    </ul>
+</body>
+</html>

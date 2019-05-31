@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>脚本化事件</title>
+    <script>
+        window.onload = function () {
+            var divNode = document.getElementById("div0");
+            divNode.onmouseleave = function () {
+                alert(divNode.innerText);
+            };
+
+
+        };
+        function back() {
+            history.go(-2);
+        }
+    </script>
+</head>
+<body>
+    <div id ="div0" style="width: 200px;height: 100px;background-color: yellow;" >
+        这是个div元素
+    </div>
+    <a href="javascript:void(0)" onclick="back();">返回</a>
+</body>
+</html>

@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>访问或修改HTML属性</title>
+    <script>
+        window.onload = function () {
+            var div0 = document.getElementById("div0");
+            div0.style.width = "200px";
+            div0.style.height = "100px";
+            div0.style.backgroundColor = "yellow";
+            div0.style.display = "inline";
+
+            var inputNode = document.getElementsByTagName("input");
+            inputNode[0].value = "李四";
+        };
+    </script>
+</head>
+<body>
+    <div id="div0">这是一个div元素</div>
+    <p>这是一个段落</p>
+</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>放大图片</title>
+    <style>
+        div{
+            width: 500px;
+            height: 500px;
+            overflow: hidden;
+            box-shadow: 10px 10px 10px grey,-10px -10px 10px grey;
+        }
+
+        div:hover img{
+            transform: scale(5.0);
+            transition-duration: 5s;
+            transition-property: transform;
+            transition-timing-function: linear;
+        }
+    </style>
+</head>
+<body>
+    <div>
+        <img src="../image/Billie-Eilish-Credit-HANNAH-SIDER_t1000.jpg" width="500px" height="500px">
+    </div>
+</body>
+</html>

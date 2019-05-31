@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>访问HTML内容</title>
+    <script>
+        window.onload = function () {
+            var spanNodes = document.getElementsByTagName("span");
+            //通过innerHTML获取元素里面的值,还能给标签赋值
+            alert(spanNodes[0].innerHTML);
+            spanNodes[0].innerHTML = "<b><i>我修改了你的内容</i></b>";
+
+            var divNodes = document.getElementsByTagName("div");
+            divNodes[0].innerText = "<span style='background-color: burlywood'>我是新的元素</span>";
+            //区别:innerHTML读取HTML,innerText读取纯文本
+        };
+    </script>
+</head>
+<body>
+    <span>这是个span元素</span>
+    <div>这是个div元素</div>
+</body>
+</html>

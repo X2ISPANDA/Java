@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>页面显示时间</title>
+    <script>
+        window.onload=function(){
+
+        //js 获取当前时间
+        function getDate(){
+            var oDiv=document.getElementsByTagName("div");
+            var date=new Date();
+            var year=date.getFullYear();
+            var month=date.getMonth();
+            var data=date.getDate();
+            var hours=date.getHours();
+            var minute=date.getMinutes();
+            var second=date.getSeconds();
+            var time=year+"-"+addZero((month+1))+"-"+addZero(data)+" "+addZero(hours)+":"+addZero(minute)+":"+addZero(second);
+            oDiv[0].innerHTML=time;
+        }
+
+        function addZero(str){
+            var num;
+            str>10?num=str:num="0"+str;
+            return num;
+        }
+
+        setInterval(function(){
+                getDate();
+            },0);
+        }
+    </script>
+</head>
+<body>
+    <div id="div1"> </div>
+</body>
+</html>
