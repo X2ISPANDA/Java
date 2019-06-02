@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>enter事件</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script>
+        $(document).ready(function (e) {
+            $(this).keydown(function (e) {
+                if (e.which == "13") {
+                    $("#div1").html("我是回车");
+                }
+
+            });
+
+        });
+    </script>
+</head>
+<body>
+
+</body>
+    <div class="div0" id="div1"></div>
+</html>

@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>效果</title>
+    <style>
+        #div0{
+            width: 100px;
+            height: 100px;
+            background-color: cyan;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script>
+        function show() {
+            $("#div0").show();
+        }
+
+        function hide() {
+            $("#div0").hide();
+        }
+        function fadein() {
+            $("#div0").fadeIn(500);
+        }
+        function fadeout() {
+            $("#div0").fadeOut(500);
+        }
+        function fadetoggle() {
+            $("#div0").fadeToggle(1000);
+        }
+        function slide() {
+            $("#div0").slideToggle(1500);
+        }
+    </script>
+
+</head>
+<body>
+    <input type="button" value="隐藏" onclick="hide()">
+    <input type="button" value="显示" onclick="show()">
+    <input type="button" value="淡入" onclick="fadein()">
+    <input type="button" value="淡出" onclick="fadeout()">
+    <input type="button" value="淡入淡出" onclick="fadetoggle()">
+    <input type="button" value="卷帘" onclick="slide()">
+    <div id="div0"></div>
+</body>
+</html>

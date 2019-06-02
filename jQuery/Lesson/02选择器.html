@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>选择器</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script>
+        function eleFun() {
+            alert($("div").html());
+        }
+
+        function classFun() {
+            alert($("p.p").text());
+        }
+
+        function idFun() {
+            alert($("#idSelect").val());
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="元素选择器" onclick="eleFun()">
+    <input type="button" value="class选择器" onclick="classFun()">
+    <input type="button" value="获取input里的值" onclick="idFun()">
+    <div>这是一个div</div>
+    <p class="p">这是一个p</p>
+    <span class="p">这是一个span</span>
+    <input type="text" id="idSelect" name="name">
+</body>
+</html>

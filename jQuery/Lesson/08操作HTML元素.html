@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>操作HTML元素</title>
+    <style>
+        #outer{
+            width: 200px;
+            background-color: aqua;
+        }
+
+        p:first-letter {
+            color: red;
+            font-size: large;
+        }
+    </style>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script>
+        // append:在内部追加内容
+        // after:在元素后面添加内容
+        // remove:移除元素
+        // empty:清空元素内部
+        function f1() {
+            $("#outer").append("div内容").append("<span>我可以</span>");
+        }
+        function f2() {
+            $("#outer").after("<p>添加了个p</p>");
+        }
+
+        function f3() {
+            $("#outer").remove();
+        }
+
+        function f4() {
+            $("#outer").empty();
+        }
+    </script>
+</head>
+<body>
+    <input type="button" value="div中添加元素" onclick="f1()">
+    <input type="button" value="div后添加元素" onclick="f2()">
+    <input type="button" value="移除元素" onclick="f3()">
+    <input type="button" value="清空元素" onclick="f4()">
+    <div id="outer"></div>
+</body>
+</html>

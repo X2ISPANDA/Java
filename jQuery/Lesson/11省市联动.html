@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>省市联动</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script>
+        var arr = new Array();
+        arr[0] = ["石家庄市", "保定市", "沧州市", "邯郸市", "唐山市", "承德市", "邢台市", "衡水市", "廊坊市", "张家口市", "秦皇岛市"];
+        arr[1] = ["长沙市", "岳阳市", "郴州市", "衡阳市", "娄底市", "邵阳市", "永州市", "张家界市", "湘西土家族苗族自治州", "常德市", "怀化市", "湘潭市", "益阳市", "株洲市"];
+        arr[2] = ["台北市", "屏东县", "宜兰县", "台东县", "台南县", "高雄县", "高雄市", "云林县", "苗粟县", "台中县", "花莲县", "南投县", "桃园县", "新竹县", "台南市", "澎湖县", "基隆市", "台中市", "嘉义县", "彰化县"];
+        arr[3] = ["南京市", "常州市", "徐州市", "淮安市", "南通市", "宿迁市", "无锡市", "扬州市", "盐城市", "苏州市", "泰州市", "镇江市", "连云港市"];
+        $(function () {
+            $("#province").change(function () {
+                $("#city").empty();
+                //var j = $(this).prop("value");
+                var j = $("#province option:selected").val();
+                for (var i = 0; i < arr[j].length; i++) {
+                    $("#city").append('<option value="'+i+'">'+arr[j][i]+'</option>');
+                }
+            });
+
+        });
+    </script>
+</head>
+<body>
+<select id="province">
+    <option>--请选择--</option>
+    <option value="0">河北省</option>
+    <option value="1">湖南省</option>
+    <option value="2">台湾省</option>
+    <option value="3">江苏省</option>
+</select>
+<select id="city">
+    <option>--请选择--</option>
+</select>
+</body>
+</html>

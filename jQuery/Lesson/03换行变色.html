@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>换行变色</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script>
+        $(document).ready(function () {
+            $("tr:odd").css("background-color", "red");
+            $("tr:even").css("background-color", "green");
+            $("tr:first").css("background-color", "black");
+            $("tr:eq(3)").css("background-color", "pink");
+        });
+    </script>
+</head>
+<body>
+<table border="1px">
+    <tr>
+        <td>1-1</td>
+        <td>1-2</td>
+        <td>1-3</td>
+        <td>1-4</td>
+    </tr>
+    <tr>
+        <td>1-1</td>
+        <td>1-2</td>
+        <td>1-3</td>
+        <td>1-4</td>
+    </tr>
+    <tr>
+        <td>1-1</td>
+        <td>1-2</td>
+        <td>1-3</td>
+        <td>1-4</td>
+    </tr>
+    <tr>
+        <td>1-1</td>
+        <td>1-2</td>
+        <td>1-3</td>
+        <td>1-4</td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>表单提交</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script>
+        function fun() {
+            //校验部分
+            alert("111");
+            $("#form").submit();
+        }
+    </script>
+</head>
+<body>
+    <form id="form" action="http://www.baidu.com" method="get">
+        用户名:<input type="text" name="username"><br/>
+        <input type="button" value="提交" id="btn" onclick="fun()">
+
+    </form>
+</body>
+</html>

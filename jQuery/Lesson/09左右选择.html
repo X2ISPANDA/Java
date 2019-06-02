@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>左右选择</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script>
+        $(function () {
+            $("#pck").click(function () {
+                $("select option:selected").appendTo($("#selectRight"));
+            });
+            $("#pckall").click(function () {
+                $("select option").appendTo($("#selectRight"));
+            });
+            $("#selectLeft").dblclick(function () {
+                $("select option:selected").appendTo($("#selectRight"));/*也可以用this,表示当前选中的元素,在这儿指selectleft*/
+            });
+            $("#pckRight").click(function () {
+                $("select option:selected").appendTo($("#selectLeft"));
+            });
+            $("#selectRight").dblclick(function () {
+                $("select option:selected").appendTo($("#selectLeft"));/*也可以用this,表示当前选中的元素,在这儿指selectleft*/
+            });
+            $("#pckAllright").click(function () {
+                $("select option").appendTo($("#selectLeft"));
+
+            });
+
+
+        });
+
+    </script>
+</head>
+<body>
+<table border="1px" width="500px" align="center" >
+    <tr>
+        <td height="300px">
+            <div style="width: 100px;height:200px; float: left;margin-left:20px;">
+                <span>
+                    备选商品
+                </span><br/>
+                <select id="selectLeft" multiple="multiple" style="width: 100%;height: 150px">
+                    <option>三星</option>
+                    <option>苹果</option>
+                    <option>魅族</option>
+                    <option>金立</option>
+                </select>
+                <p style="margin-left: 40px;cursor: pointer" id="pck" >>></p>
+                <p style="margin-left: 40px;cursor: pointer" id="pckall">>>></p>
+
+
+            </div>
+            <div style="width: 100px;height:200px; float: right;margin-right:20px;">
+                <span>
+                    已有商品
+                </span><br/>
+                <select id="selectRight" multiple="multiple" style="width: 100%;height: 150px">
+                    <option>华为</option>
+                </select>
+                <p style="margin-left: 40px;cursor: pointer" id="pckRight"><<</p>
+                <p style="margin-left: 40px;cursor: pointer" id="pckAllright"><<<</p>
+            </div>
+        </td>
+    </tr>
+</table>
+</body>
+</html>

@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>获取属性</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <style>
+        .div0 {
+            background-color: palegoldenrod;
+            width: 200px;
+            height: 200px;
+        }
+    </style>
+    <script>
+        $(function () {
+            ($(":text").val("aaa"));
+            alert($(":text").prop("name"));//既能赋值又能取值
+            alert($(":text").attr("name"));
+            //添加样式的第一种方法
+            // $("div").css({"background-color": "#654321", "color": "red",
+            //     "width":"300px", "height": "50px"});
+            //添加样式的第二种方法
+            $("#div0").addClass("div0");
+            $("#btn").click(function () {
+                $("#div0").removeClass("div0");
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="button" value="移除样式" id="btn">
+    <input type="text" name="username"><br/>
+    <div id="div0">儿童节快乐</div>
+
+</body>
+</html>

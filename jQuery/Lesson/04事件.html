@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>jQuery绑定事件</title>
+    <script src="https://code.jquery.com/jquery-3.4.1.js"></script>
+    <script>
+        $(function () {
+            $(":button").click(function () {
+                alert("按钮点击事件");
+            });
+        });
+        $(function () {
+            $(":button").hover(function () {
+                alert("鼠标移入事件");
+            }, function () {
+            });
+        });
+    </script>
+</head>
+<body>
+    <input type="button" value="按钮脚本事件">
+</body>
+</html>
