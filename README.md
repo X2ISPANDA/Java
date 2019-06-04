@@ -1,10 +1,10 @@
 # Java1014班学习历程
 
+## *一丶前端学习*
 
+## *1. HTML+CSS整合*
 
-## *一丶HTML+CSS整合*
+## *2. JavaScript*
 
-
-
-## *二丶JavaScript*
+## *3. jQuery*
 
