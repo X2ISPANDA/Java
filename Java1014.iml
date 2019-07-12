@@ -1,0 +1,18 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<module type="WEB_MODULE" version="4">
+  <component name="NewModuleRootManager" inherit-compiler-output="true">
+    <exclude-output />
+    <content url="file://$MODULE_DIR$">
+      <sourceFolder url="file://$MODULE_DIR$/Java/Lesson/day01" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Java/Lesson/day02" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Java/Task" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Java/Lesson/day03" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Java/Lesson/day04" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Java/Lesson/day05" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Algorithm" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Java/Lesson/day06" isTestSource="false" />
+    </content>
+    <orderEntry type="inheritedJdk" />
+    <orderEntry type="sourceFolder" forTests="false" />
+  </component>
+</module>
