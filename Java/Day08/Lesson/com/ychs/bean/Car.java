@@ -71,15 +71,19 @@ public class Car {
         if(obj==null) {
             return false;
         }
+
         //自己和自己比较
         if(obj==this) {
             return true;
         }
+
         if(obj instanceof Car) {
             Car car = (Car) obj;
             return car.brand.equals(this.brand)&&car.carNum.equals(this.carNum)
                     &&car.color.equals(this.color);
         }
+
+
         return false;
     }
 

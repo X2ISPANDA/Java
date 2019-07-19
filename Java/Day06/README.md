@@ -6,6 +6,6 @@
 
 - 随机验证码
 
-- ArrayAPI排序
+- ArraysAPI排序
 
   
