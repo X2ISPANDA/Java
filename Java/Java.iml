@@ -6,8 +6,7 @@
       <sourceFolder url="file://$MODULE_DIR$/src" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/Day11/Task" isTestSource="false" />
       <sourceFolder url="file://$MODULE_DIR$/resources" type="java-resource" />
-      <sourceFolder url="file://$MODULE_DIR$/Day10/Task" isTestSource="false" />
-      <sourceFolder url="file://$MODULE_DIR$/Day10/Lesson" isTestSource="false" />
+      <sourceFolder url="file://$MODULE_DIR$/Day12/Lesson" isTestSource="false" />
       <excludeFolder url="file://$MODULE_DIR$/out" />
     </content>
     <orderEntry type="jdk" jdkName="1.8" jdkType="JavaSDK" />

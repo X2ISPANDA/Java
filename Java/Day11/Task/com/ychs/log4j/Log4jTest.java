@@ -14,6 +14,7 @@ public class Log4jTest {
      * @param args
      */
     public static void main(String[] args) {
+
         // System.out.println("This is println message.");
 
         // 记录debug级别的信息
