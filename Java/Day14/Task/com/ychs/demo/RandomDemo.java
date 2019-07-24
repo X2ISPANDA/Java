@@ -6,6 +6,7 @@
 package com.ychs.demo;
 
 import java.util.Random;
+import java.util.TreeSet;
 
 /**
  * @author Mingyu Xiong
@@ -14,7 +15,16 @@ import java.util.Random;
  */
 public class RandomDemo {
     public static void main(String[] args) {
-        Random random = new Random();
-
+        Random  r = new Random();
+        TreeSet<Integer> hs = new TreeSet();
+        int a = 10;
+        while (hs.size() < a) {
+            int num = r.nextInt(20) + 1;
+            hs.add(num);
+        }
+        for(Integer i :hs){
+            System.out.print(i+"  ");
+        }
     }
+
 }
