@@ -131,7 +131,7 @@ public class Student {
      */
     @Override
     public String toString() {
-        return "Student{" +
+        return "com.ychs.task.Student{" +
                 "sno='" + sno + '\'' +
                 ", sname='" + sname + '\'' +
                 ", age=" + age +

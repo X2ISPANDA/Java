@@ -42,11 +42,11 @@
 
 > 4、阅读代码  
 >
-> class Test{
+> class com.ychs.task.Test{
 >
 > public static int count = 0;//静态变量
 >
-> public Test(){
+> public com.ychs.task.Test(){
 >
 > count++;
 >
@@ -54,11 +54,11 @@
 >
 > public static void main(String[] args){
 >
->  Test o1 = new Test();
+>  com.ychs.task.Test o1 = new com.ychs.task.Test();
 >
->  Test o2 = new Test();
+>  com.ychs.task.Test o2 = new com.ychs.task.Test();
 >
->  System.out.println(Test.count);
+>  System.out.println(com.ychs.task.Test.count);
 >
 > }
 >
