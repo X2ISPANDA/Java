@@ -15,12 +15,8 @@ import java.util.TreeSet;
  */
 public class ExamDemo{
     public static void main(String[] args) {
-        TreeSet<Grade> grades = new TreeSet<>(new Comparator<Grade>() {
-            @Override
-            public int compare(Grade o1, Grade o2) {
-                return o2.getScore()-o1.getScore();
-            }
-        });
+        //Lambda表达式
+        TreeSet<Grade> grades = new TreeSet<>((Grade o1, Grade o2) -> o2.getScore() - o1.getScore());
         Grade grade = new Grade();
         grade.setName("周杰伦");
         grade.setScore(0);

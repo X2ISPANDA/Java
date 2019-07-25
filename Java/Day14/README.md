@@ -2,6 +2,12 @@
 
 ![img](https://github.com/godbear329/Java_Basic_Introduction/raw/master/%E7%AC%AC6%E7%AB%A0%20%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/images/Collection_02.png)
 
+##### 集合和数组的区别：
+
+- 数组的长度是固定的，集合的长度是可变的。
+- 集合中存储的元素是引用数据类型，集合也叫做“对象容器”，可以是基本数据类型的包装类，也可以是其他复合数据类型。
+- Java API 中定义好的一系列关于集合的类和接口放在 java .util 包中。
+
 ## Collection
 
 Collection：单列集合类的根接口，用于存储一系列符合某种规则的元素，它有两个重要的子接口，分别是List和Set。其中，List的特点是元素有序、元素可重复。Set的特点是元素无序，而且不可重复。List接口的主要实现类有ArrayList和LinkedList，Set接口的主要实现类有HashSet和TreeSet。
@@ -77,7 +83,6 @@ ArrayList遍历:
   2. 底层结构是 哈希表结构 + 链表结构， 由链表保证元素有序，由哈希表保证元素唯一
   3. 元素的存与取的顺序一致
   
-
 - TreeSet
 
   底层数据结构是红黑树.
