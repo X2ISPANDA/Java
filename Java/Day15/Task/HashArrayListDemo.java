@@ -3,6 +3,8 @@
  * All Rights Reserved,Designed By Mingyu Xiong
  */
 
+import org.apache.log4j.Logger;
+
 import java.util.*;
 
 /**
@@ -11,7 +13,9 @@ import java.util.*;
  * @date 2019/07/25 15:51
  */
 public class HashArrayListDemo {
+    private static org.apache.log4j.Logger logger = Logger.getLogger(HashArrayListDemo.class);
     public static void main(String[] args) {
+        logger.debug("aaa");
         HashMap<String, ArrayList<String>> hashMap = new HashMap<>();
         ArrayList<String> list = new ArrayList<>();
         ArrayList<String> list1 = new ArrayList<>();
