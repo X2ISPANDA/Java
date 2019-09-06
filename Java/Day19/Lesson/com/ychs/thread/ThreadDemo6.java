@@ -23,7 +23,7 @@ public class ThreadDemo6 implements Runnable{
         Thread thread = new Thread(new ThreadDemo6(),"线程1");
         Thread thread1 = new Thread(new ThreadDemo6(),"线程2");
 
-        //设置优先级范围是0到10
+        //设置优先级范围是1到10
         thread1.setPriority(10);
         thread.start();
         try {

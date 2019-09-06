@@ -44,4 +44,14 @@ public class Producer implements Runnable {
     public void setProduct(Product product) {
         this.product = product;
     }
+
+    @Override
+    public boolean equals(Object obj) {
+        return super.equals(obj);
+    }
+
+    public static void main(String[] args) {
+        if(3>2)
+            System.out.println(3);
+    }
 }

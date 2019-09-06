@@ -143,3 +143,58 @@ Java反射机制：在运行状态中，对于任意一个类，都能够知道�
   > 4. 实现InvocationHandler接口重写invoke方法
   > 5. 创建代理对象Proxy.newProxyInstance();`/第一个参数,代理类的加载器//第二个参数,代理类的所有接口//第三个参数,代理对象需要绑定的处理器`
 
+## 注解 Annotation
+
+> 从名字上看是注释，解释。但功能却不仅仅是注释那么简单。注解（Annotation） 为我们在代码中添加信息提供了一种形式化的方法，是我们可以在稍后某个时刻方便地使用这些数据（通过 解析注解 来使用这些数据）
+
+用一个词就可以描述注解，那就是元数据，即一种描述数据的数据。所以，可以说注解就是源代码的元数据。
+
+ 1.注解相当于一种标记
+
+加了注解就等于打上了某种标记，没加，则等于没有某种标记，以后，javac编译器，开发工具包和其他程序可以用反射来了解你的类以及各种元素上有何种标记，看你有什么标记，就去干相应的事，标记可以加在包，类，字段，方法，方法的参数以及局部变量上
+
+2.看java.lang.annotation包可以看到jdk中提供的最基本的Annotation接口
+
+### 注解的作用：
+开发者可以在不改变代码逻辑的情况下，在源文件中嵌入补充信息（并不影响程序的执行）。Annotation是一种应用于类、方法、参数、变量、构造器及包声明中的特殊修饰符。它是一种由JSR-175标准选择用来描述元数据的一种工具。
+
+### 元注解
+
+ava.lang.annotation提供了四种元注解，专门注解其他的注解：
+
+@Documented –注解是否将其包含在JavaDoc中
+@Retention –什么时候使用该注解
+@Target –注解用于什么地方
+@Inherited – 是否允许子类继承该注解
+
+@Documented–一个简单的Annotations标记注解，表示是否将注解信息添加在java文档中。
+
+@Retention– 定义该注解的生命周期。
+
+RetentionPolicy.SOURCE – 在编译阶段丢弃。这些注解在编译结束之后就不再有任何意义，所以它们不会写入字节码。@Override, @SuppressWarnings都属于这类注解。
+
+RetentionPolicy.CLASS – 在类加载的时候丢弃。在字节码文件的处理中有用。注解默认使用这种方式。
+
+RetentionPolicy.RUNTIME– 始终不会丢弃，运行期也保留该注解，因此可以使用反射机制读取该注解的信息。我们自定义的注解通常使用这种方式。
+
+@Target – 表示该注解用于什么地方。如果不明确指出，该注解可以放在任何地方。以下是一些可用的参数。需要说明的是：属性的注解是兼容的，如果你想给7个属性都添加注解，仅仅排除一个属性，那么你需要在定义target包含所有的属性。
+
+ElementType.TYPE:用于描述类、接口或enum声明
+ElementType.FIELD:用于描述实例变量
+ElementType.METHOD
+ElementType.PARAMETER
+ElementType.CONSTRUCTOR
+ElementType.LOCAL_VARIABLE
+ElementType.ANNOTATION_TYPE 另一个注释
+ElementType.PACKAGE 用于记录java文件的package信息
+
+@Inherited – 定义该注释和子类的关系
+
+### 基本内置注解
+
+@Override  用在方法重写时使用，限定重写父类方法，该注解只能用于方法。
+
+@SuppressWarnings：抑制编译器警告。
+
+@Deprecated：用于表示某个程序元素(类，方法等)已过时。 
+
