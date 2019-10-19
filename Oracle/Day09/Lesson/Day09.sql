@@ -4,7 +4,7 @@
 --包的声明
 CREATE OR REPLACE PACKAGE dept_pkg
 IS
-       --添加
+      --添加
        FUNCTION add_dept_fun (v_dept IN dept%rowtype)
          RETURN BOOLEAN;
         --修改

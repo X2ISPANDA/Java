@@ -1,11 +1,11 @@
---Íù°à¼¶±í²åÈëÊý¾Ý
---È«²¿²åÈë
+--å¾€ç­çº§è¡¨æ’å…¥æ•°æ®
+--å…¨éƒ¨æ’å…¥
 SELECT * FROM t_class;
-INSERT INTO t_class VALUES('1003','3°à');
+INSERT INTO t_class VALUES('1003','3ç­');
 
---²åÈëÒ»Ìõ²»ÍêÕûµÄ¼ÇÂ¼
+--æ’å…¥ä¸€æ¡ä¸å®Œæ•´çš„è®°å½•
 SELECT * FROM t_student;
-INSERT INTO t_student(stuno,stuname) VALUES ('7','Ð¤ºÆ·æ');
+INSERT INTO t_student(stuno,stuname) VALUES ('7','è‚–æµ©é”‹');
 
 
 CREATE TABLE t_course(
@@ -23,42 +23,42 @@ CREATE TABLE t_scgrade(
 
 ALTER TABLE t_scgrade ADD CONSTRAINT zj PRIMARY KEY(sno,cno);
 ALTER TABLE t_course MODIFY (cscore NUMBER(2,1));
-ALTER TABLE t_course ADD CONSTRAINT 
+ALTER TABLE t_course ADD CONSTRAINT
 
-INSERT INTO t_course VALUES(1,'¼ÆËã»ú¿ÆÑ§',2.5,'ÕÅÑ§ÓÑ');
+INSERT INTO t_course VALUES(1,'è®¡ç®—æœºç§‘å­¦',2.5,'å¼ å­¦å‹');
 
---¸üÐÂµ¥ÁÐ
---UPDATE ±íÃû SET ×Ö¶ÎÃû=Öµ,×Ö¶ÎÃû=Öµ
---°ÑËùÓÐÑ§ÉúµÄÃû×Ö¸Ä³ÉÕÅÈý·á
-UPDATE t_student SET stuname='ÕÅÈý·á';
+--æ›´æ–°å•åˆ—
+--UPDATE è¡¨å SET å­—æ®µå=å€¼,å­—æ®µå=å€¼
+--æŠŠæ‰€æœ‰å­¦ç”Ÿçš„åå­—æ”¹æˆå¼ ä¸‰ä¸°
+UPDATE t_student SET stuname='å¼ ä¸‰ä¸°';
 
---É¾³ý¼ÇÂ¼
---DELETE FROM ±íÃû WHERE Ìõ¼þ
+--åˆ é™¤è®°å½•
+--DELETE FROM è¡¨å WHERE æ¡ä»¶
 DELETE FROM t_student;
 
 ROLLBACK;
 
---UPDATE ±íÃû SET account=account-50 WHERE ...;
---UPDATE ±íÃû SET account=account+50 WHERE ...;
+--UPDATE è¡¨å SET account=account-50 WHERE ...;
+--UPDATE è¡¨å SET account=account+50 WHERE ...;
 
 SELECT * FROM EMP;
 SELECT empno,ename,job,mgr,hiredate FROM emp;
-SELECT  deptno, ename £¬rowid FROM  emp; 
+SELECT  deptno, ename ï¼Œrowid FROM  emp;
 
 SELECT ename,sal,12*sal as ysal FROM emp;
 SELECT empno,ename,sal,sal*12 as ysal,comm,sal*12+NAVL(comm,0) FROM emp;
 
-SELECT SYSDATE-1 as ×òÌì,SYSDATE as ½ñÌì,SYSDATE+1 as Ã÷Ìì FROM dual;
+SELECT SYSDATE-1 as æ˜¨å¤©,SYSDATE as ä»Šå¤©,SYSDATE+1 as æ˜Žå¤© FROM dual;
 
 SELECT * FROM dual;
 insert into dual values('Y');
 SELECT * FROM dual;
 
 SELECT 'HELLO'||'WORLD' FROM dual;
-SELECT ename||'µÄ¹¤×ÊÊÇ£º'||sal
+SELECT ename||'çš„å·¥èµ„æ˜¯ï¼š'||sal
 FROM emp;
 
-SELECT DISTINCT job 
+SELECT DISTINCT job
 FROM emp;
 
 SELECT ename,sal FROM emp WHERE sal>1500;
@@ -70,10 +70,10 @@ SELECT ename,sal,deptno FROM emp WHERE deptno=30 AND sal>1000 OR sal>2000;
 SELECT ename,sal,deptno FROM emp WHERE deptno!=10 AND deptno!=20;
 SELECT ename,deptno FROM emp WHERE deptno=10 OR  deptno=20;
 
-SELECT ename,sal,deptno FROM emp WHERE ename LIKE '_A%'; 
+SELECT ename,sal,deptno FROM emp WHERE ename LIKE '_A%';
 SELECT empno,ename,sal,comm FROM emp WHERE comm IS NOT NULL AND comm<>0;
 SELECT ename,deptno FROM emp WHERE deptno IN(20,30);
-SELECT ename,sal FROM emp WHERE sal NOT BETWEEN 2000 AND 3000; 
+SELECT ename,sal FROM emp WHERE sal NOT BETWEEN 2000 AND 3000;
 
 SELECT * FROM dept;
 SELECT deptno,dname FROM dept ORDER BY deptno ASC;
@@ -83,26 +83,26 @@ SELECT deptno, AVG(sal) avgsal FROM emp GROUP BY deptno;
 SELECT deptno,AVG(sal) avgsal,MAX(sal) maxsal FROM emp GROUP BY deptno;
 SELECT deptno,AVG(sal) avgsal FROM emp GROUP BY deptno ORDER BY avgsal ASC;
 SELECT ename,sal FROM emp
-WHERE ename LIKE '%\_%' ESCAPE '\'; --×ªÒåESCAPE '\'
+WHERE ename LIKE '%\_%' ESCAPE '\'; --è½¬ä¹‰ESCAPE '\'
 
 SELECT deptno,COUNT(empno) count FROM emp WHERE deptno IN(10,20,30) GROUP BY deptno;
---Í³¼Æ¸÷¸öÖ°Î»µÄÔ±¹¤ÈËÊýºÍÆ½¾ù¹¤×Ê¡£
+--ç»Ÿè®¡å„ä¸ªèŒä½çš„å‘˜å·¥äººæ•°å’Œå¹³å‡å·¥èµ„ã€‚
 SELECT job,COUNT(empno),AVG(sal) FROM emp GROUP BY job;
 
---²éÑ¯¸÷¸ö²¿ÃÅ¸÷¸ö¸ÚÎ»µÄÆ½¾ù¹¤×Ê¡£
+--æŸ¥è¯¢å„ä¸ªéƒ¨é—¨å„ä¸ªå²—ä½çš„å¹³å‡å·¥èµ„ã€‚
 SELECT deptno,job,AVG(sal) AVGSAL FROM emp GROUP BY deptno,job;
 
---Í³¼ÆÔ±¹¤±íÖÐÓÐ½±½ð£¨°üÀ¨½±½ð²»ÄÜÎª0£©µÄÔ±¹¤ÈËÊý
+--ç»Ÿè®¡å‘˜å·¥è¡¨ä¸­æœ‰å¥–é‡‘ï¼ˆåŒ…æ‹¬å¥–é‡‘ä¸èƒ½ä¸º0ï¼‰çš„å‘˜å·¥äººæ•°
 SELECT COUNT(comm) FROM emp WHERE comm!=0;
 
---Í³¼ÆÔ±¹¤±íËùÓÐÔ±¹¤µÄÈËÊý
+--ç»Ÿè®¡å‘˜å·¥è¡¨æ‰€æœ‰å‘˜å·¥çš„äººæ•°
 SELECT COUTN(*) FROM emp;
---Í³¼ÆÖ°Î»µÄ¸öÊý
+--ç»Ÿè®¡èŒä½çš„ä¸ªæ•°
 SELECT COUNT(DISDINCT job) FROM emp;
 
---HAVINGÓï¾ä:¶Ô·Ö×éºóµÄ½á¹û½øÐÐÉ¸Ñ¡
---²éÑ¯¸÷¸ö²¿ÃÅÆ½¾ù¹¤×ÊÐ¡ÓÚ2500µÄÔ±¹¤µÄÆ½¾ù¹¤×ÊºÍ×î¸ß¹¤×Ê¡£
+--HAVINGè¯­å¥:å¯¹åˆ†ç»„åŽçš„ç»“æžœè¿›è¡Œç­›é€‰
+--æŸ¥è¯¢å„ä¸ªéƒ¨é—¨å¹³å‡å·¥èµ„å°äºŽ2500çš„å‘˜å·¥çš„å¹³å‡å·¥èµ„å’Œæœ€é«˜å·¥èµ„ã€‚
 SELECT deptno,AVG(sal) avgsal,MAX(sal) maxsal FROM emp GROUP BY deptno HAVING AVG(sal)<2500;
 
---ÁÐ³öÖÁÉÙÓÐËÄ¸öÔ±¹¤µÄËùÓÐ²¿ÃÅºÅºÍËùÔÚ²¿ÃÅµÄÔ±¹¤ÈËÊý
+--åˆ—å‡ºè‡³å°‘æœ‰å››ä¸ªå‘˜å·¥çš„æ‰€æœ‰éƒ¨é—¨å·å’Œæ‰€åœ¨éƒ¨é—¨çš„å‘˜å·¥äººæ•°
 SELECT deptno,COUNT(ename) FROM emp GROUP BY deptno HAVING COUNT(ename)>=4;
