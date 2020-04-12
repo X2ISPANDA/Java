@@ -75,7 +75,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-webmvc</artifactId>
-      <version>5.2.2.RELEASE</version>
+      <version>5.2.4.RELEASE</version>
     </dependency>
     <!--4、spring的aop-->
     <!-- https://mvnrepository.com/artifact/org.springframework/spring-aop -->
