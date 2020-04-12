@@ -1,0 +1,65 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd http://www.springframework.org/schema/mvc http://www.springframework.org/schema/mvc/spring-mvc.xsd">
+
+    <context:component-scan base-package="com.ychs.ssm.day04.controller" use-default-filters="false">
+        <!--扫描注解为@Controller的类-->
+        <context:include-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!--开启SpringMVC注解特性标签-->
+    <mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>
+
+    <!--配置JSP类型的视图解析器-->
+    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
+        <!--让SoringMVC能够支持JSTL表达式相关内容-->
+        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
+        <!--前缀-->
+        <property name="prefix">
+            <value>/npage/</value>
+        </property>
+        <!--后缀-->
+        <property name="suffix">
+            <value>.jsp</value>
+        </property>
+    </bean>
+
+    <bean id="/Test.do" class="com.ychs.ssm.day04.controller.TestController">
+        <property name="testService" ref="testService"></property>
+    </bean>
+
+    <bean id="conversionService"
+          class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
+        <property name="converters">
+            <list>
+                <!--<ref bean="stringToDateConverter"></ref>-->
+                <bean class="com.ychs.ssm.day04.util.StringToDateConverter"></bean>
+            </list>
+        </property>
+    </bean>
+
+    <!--告知当前Spring MVC容器如何去处理静态资源的请求路径-->
+    <mvc:resources mapping="/js/**" location="/js/"></mvc:resources>
+    <mvc:resources mapping="/img/**" location="/img/"></mvc:resources>
+    <mvc:resources mapping="/css/**" location="/css/"></mvc:resources>
+
+   <!-- <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
+        &lt;!&ndash;配置出现绝大多数异常时，处理的页面&ndash;&gt;
+        <property name="defaultErrorView" value="/error/unitedError"></property>
+        &lt;!&ndash;当出现异常时，异常处理页面当中想要获取异常信息通过哪个对象名来获取&ndash;&gt;
+        <property name="exceptionAttribute" value="exception"/>
+
+        &lt;!&ndash;定义需要特殊处理的异常，这是重点&ndash;&gt;
+        <property name="exceptionMappings">
+            <props>
+                <prop key="com.ychs.ssm.day04.util.BusiException">/error/busiError</prop>
+            </props>
+            &lt;!&ndash;还可以定义其他的自定义异常&ndash;&gt;
+        </property>
+    </bean>-->
+
+    <bean class="com.ychs.ssm.day04.util.MyExceptionResolver"></bean>
+</beans>

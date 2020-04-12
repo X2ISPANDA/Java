@@ -1,0 +1,164 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ychs.ssm.day07.mapper.UserInfoMapper">
+    <resultMap id="userInfoMap" type="com.ychs.ssm.day07.model.UserInfo">
+        <id property="id" column="id" javaType="java.lang.Integer"></id>
+        <result property="name" column="name" javaType="java.lang.String"></result>
+        <result property="username" column="username" javaType="java.lang.String"></result>
+        <result property="password" column="password" javaType="java.lang.String"></result>
+        <result property="sex" column="sex" javaType="java.lang.String"></result>
+    </resultMap>
+
+    <sql id="userInfoColumn">
+        id,
+        name,
+        username,
+        password,
+        sex
+    </sql>
+
+    <!--<select id="selectUserInfo" resultMap="userInfoMap">-->
+    <!--<select id="selectUserInfo" resultType="com.ychs.ssm.day07.model.UserInfo">-->
+    <select id="selectUserInfo" resultType="UserInfo">
+        SELECT
+        <include refid="userInfoColumn" />
+        FROM
+        user_info
+    </select>
+
+    <select id="selectUserByName" parameterType="java.lang.String" resultMap="userInfoMap">
+        SELECT
+        <include refid="userInfoColumn" />
+        FROM
+        user_info
+        WHERE
+        username=#{username}
+    </select>
+
+    <select id="selectUserByCond" parameterType="UserInfo" resultType="UserInfo">
+        SELECT
+        <include refid="userInfoColumn" />
+        FROM
+        user_info
+        WHERE
+        username = #{username}
+        AND password = #{password}
+    </select>
+
+    <select id="selectUserByMap" parameterType="map" resultType="UserInfo">
+        SELECT
+        <include refid="userInfoColumn" />
+        FROM
+        user_info
+        WHERE
+        username = #{username}
+        AND password = #{password}
+    </select>
+
+<!--    <insert id="insertUser" parameterType="UserInfo">
+        INSERT INTO
+        user_info
+        (id,name,username,password,sex)
+        VALUES
+        (#{id},#{name},#{username},#{password},#{sex})
+    </insert>-->
+
+    <!--主键自增-->
+    <insert id="insertUser" useGeneratedKeys="true" keyProperty="id" parameterType="UserInfo">
+        INSERT INTO
+        user_info
+        (name,username,password,sex)
+        VALUES
+        (#{name},#{username},#{password},#{sex})
+    </insert>
+
+    <update id="updateUserMap" parameterType="hashmap">
+        UPDATE
+        user_info
+        SET
+        name = #{name},
+        username = #{username},
+        password = #{password},
+        sex = #{sex}
+        WHERE id = #{id}
+    </update>
+
+    <!--在MyBatis的映射文件当中，单引号代表字符串类型-->
+   <!-- <select id="selectUserMultiple" parameterType="UserInfo" resultType="UserInfo">
+        SELECT
+        <include refid="userInfoColumn">
+        </include>
+        FROM
+        user_info
+        WHERE 1=1
+        <if test="name!=null and name!=''">
+        AND name = #{name}
+        </if>
+        <if test="username!=null and username!=''">
+        AND username = #{username}
+        </if>
+        <if test="password!=null and password!=''">
+        AND password = #{password}
+        </if>
+    </select>-->
+
+<!--    <select id="selectUserMultiple" parameterType="UserInfo" resultType="UserInfo">
+        SELECT
+        <include refid="userInfoColumn">
+        </include>
+        FROM
+        user_info
+        <where>
+            <if test="name!=null and name!=''">
+                AND name = #{name}
+            </if>
+            <if test="username!=null and username!=''">
+                AND username = #{username}
+            </if>
+            <if test="password!=null and password!=''">
+                AND password = #{password}
+            </if>
+        </where>
+    </select>-->
+
+    <select id="selectUserMultiple" parameterType="UserInfo" resultType="UserInfo">
+        SELECT
+        <include refid="userInfoColumn">
+        </include>
+        FROM
+        user_info
+        <trim prefix="WHERE" prefixOverrides="AND">
+            <if test="name!=null and name!=''">
+                AND name = #{name}
+            </if>
+            <if test="username!=null and username!=''">
+                AND username = #{username}
+            </if>
+            <if test="password!=null and password!=''">
+                AND password = #{password}
+            </if>
+        </trim>
+    </select>
+
+
+    <select id="selectUserByCond01" parameterType="UserInfo" resultType="UserInfo">
+        SELECT
+        <include refid="userInfoColumn"></include>
+        FROM
+        user_info
+        WHERE
+        <choose>
+            <when test="name != null and name=='wrx'">
+                name = #{name}
+            </when>
+            <when test="username != null and username != ''">
+                username = #{username}
+            </when>
+            <otherwise>
+                sex = #{sex}
+            </otherwise>
+        </choose>
+    </select>
+</mapper>

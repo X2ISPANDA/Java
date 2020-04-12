@@ -1,0 +1,57 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:aop="http://www.springframework.org/schema/aop"
+       xmlns:tx="http://www.springframework.org/schema/tx"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+http://www.springframework.org/schema/beans/spring-beans-3.2.xsd
+http://www.springframework.org/schema/mvc
+http://www.springframework.org/schema/mvc/spring-mvc-3.2.xsd
+http://www.springframework.org/schema/context
+http://www.springframework.org/schema/context/spring-context-3.2.xsd
+http://www.springframework.org/schema/aop
+http://www.springframework.org/schema/aop/spring-aop-3.2.xsd
+http://www.springframework.org/schema/tx
+http://www.springframework.org/schema/tx/spring-tx-3.2.xsd ">
+    <context:component-scan base-package="com.ychs.service"></context:component-scan>
+    <context:property-placeholder location="classpath:db.properties"></context:property-placeholder>
+    <!--数据库的配置,引入阿里的连接池-->
+    <bean name="dataSource" class="com.alibaba.druid.pool.DruidDataSource">
+        <property name="driverClassName" value="${driverClassName}"></property>
+        <property name="url" value="${url}"></property>
+        <property name="username" value="${user}"></property>
+        <property name="password" value="${password}"></property>
+    </bean>
+    <!--spring数据库管理器-->
+    <bean name="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
+    </bean>
+    <!--配置通知-->
+    <tx:advice transaction-manager="transactionManager" id="txAdvice">
+        <tx:attributes>
+            <tx:method name="add*" isolation="DEFAULT" read-only="false" propagation="REQUIRED"/>
+            <tx:method name="edit*" propagation="REQUIRED" read-only="false" isolation="DEFAULT"></tx:method>
+            <tx:method name="delete*" isolation="DEFAULT" read-only="false" propagation="REQUIRED"></tx:method>
+            <tx:method name="get*" isolation="DEFAULT" read-only="true" propagation="REQUIRED"></tx:method>
+        </tx:attributes>
+    </tx:advice>
+    <!--把通知织入切入点-->
+    <aop:config>
+        <aop:pointcut id="pc" expression="execution(* com.ychs.service..*ServiceImpl.*(..))"/>
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="pc"></aop:advisor>
+    </aop:config>
+    <!--mybatis配置-->
+    <bean name="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+        <property name="mapperLocations" value="classpath:com/ychs/mapper/*.xml"></property>
+        <property name="typeAliasesPackage" value="com.ychs.pojo"></property>
+        <property name="configLocation" value="classpath:SqlMapConfig.xml"></property>
+    </bean>
+    <!--扫描mapper接口，动态代理自动生成接口对象，自动注入spring容器中-->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+        <property name="basePackage" value="com.ychs.mapper"></property>
+    </bean>
+</beans>

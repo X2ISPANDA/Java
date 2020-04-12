@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ychs.ssm.day07.mapper.UserInfoMapper">
+    <resultMap id="userInfoMap" type="com.ychs.ssm.day07.model.UserInfo">
+        <id property="id" column="id" javaType="java.lang.Integer"></id>
+        <result property="name" column="name" javaType="java.lang.String"></result>
+        <result property="username" column="username" javaType="java.lang.String"></result>
+        <result property="password" column="password" javaType="java.lang.String"></result>
+        <result property="sex" column="sex" javaType="java.lang.String"></result>
+    </resultMap>
+
+    <select id="selectUserInfo" resultMap="userInfoMap">
+        SELECT
+        id,
+        name,
+        username,
+        password,
+        sex
+        FROM
+        user_info
+    </select>
+</mapper>

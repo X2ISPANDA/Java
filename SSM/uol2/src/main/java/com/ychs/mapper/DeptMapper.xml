@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ychs.mapper.DeptMapper">
+    <sql id="queryDeptCondition">
+        <where>
+            <if test="schoolId!=null and schoolId!=''">
+                and schoolId=#{schoolId}
+            </if>
+            <if test="id!=null and id!=''">
+                and d.id=#{id}
+            </if>
+        </where>
+    </sql>
+    <resultMap id="deptsAndSchool" type="com.ychs.pojo.Dept">
+        <id property="id" column="id"></id>
+        <result property="deptName" column="deptName"></result>
+        <result property="schoolId" column="schoolId"></result>
+        <result property="remark" column="remark"></result>
+        <association property="school" javaType="com.ychs.pojo.School">
+            <result property="id" column="sid"></result>
+            <result property="schoolName" column="schoolName"></result>
+            <result property="address" column="address"></result>
+        </association>
+    </resultMap>
+    <select id="getDepts" parameterType="dept" resultMap="deptsAndSchool">
+        select d.*,s.id sid,s.schoolName,s.address from t_dept d left join t_school s on d.schoolId=s.id
+        <include refid="queryDeptCondition"></include>
+        order by d.id desc limit ${(page-1)*limit},#{limit}
+    </select>
+    <select id="getCount" parameterType="dept" resultType="int">
+        select count(*) from t_dept d left join t_school s on d.schoolId=s.id
+        <include refid="queryDeptCondition"></include>
+    </select>
+    <insert id="addDept" parameterType="dept">
+        insert into t_dept(deptName,remark,schoolId)
+        values(#{deptName},#{remark},#{schoolId})
+    </insert>
+    <select id="getDeptBySchoolId" parameterType="int" resultType="dept">
+        select * from t_dept where schoolId=#{schoolId}
+    </select>
+    <delete id="deleteDeptByIds">
+        delete from t_dept where id
+        <foreach collection="array" item="i" open="in (" close=")" separator=",">
+            #{i}
+        </foreach>
+    </delete>
+</mapper>

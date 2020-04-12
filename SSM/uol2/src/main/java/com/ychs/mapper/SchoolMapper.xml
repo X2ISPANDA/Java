@@ -1,0 +1,38 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ychs.mapper.SchoolMapper">
+    <sql id="querySchoolCondition">
+        <where>
+            <if test="schoolName!=null and schoolName!=''">
+                and schoolName like '%${schoolName}%'
+            </if>
+            <if test="address!=null and address!=''">
+                and address like '%${address}%'
+            </if>
+        </where>
+    </sql>
+    <select id="getSchools" parameterType="school" resultType="school">
+        select * from t_school
+        <include refid="querySchoolCondition"></include>
+        order by id desc
+        limit ${(page-1)*limit},#{limit}
+    </select>
+    <select id="getCount" parameterType="school" resultType="int">
+        select count(*) from t_school
+        <include refid="querySchoolCondition"></include>
+    </select>
+
+    <insert id="addSchool" parameterType="school">
+        insert into t_school(schoolName,address) values(#{schoolName},#{address})
+    </insert>
+    <update id="editSchool" parameterType="school">
+        update t_school set schoolName=#{schoolName},address=#{address} where id=#{id}
+    </update>
+    <delete id="deleteSchool" parameterType="int">
+        delete from t_school where id=#{id}
+    </delete>
+
+    <select id="getSchoolList" resultType="school">
+        select * from t_school
+    </select>
+</mapper>

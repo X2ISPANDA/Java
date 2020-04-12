@@ -1,0 +1,50 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+          http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+          http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd">
+
+    <bean id="teacher" class="com.yckj.ssm.day01.model.Teacher">
+        <property name="teacherId" value="1"/>
+        <property name="name" value="张三"/>
+        <property name="age" value="18"/>
+        <property name="sex" value="true"/>
+    </bean>
+
+    <bean id="student2" class="com.yckj.ssm.day01.model.Student">
+        <property name="stuId" value="2"/>
+        <property name="name" value="王五"/>
+        <property name="sex" value="true"/>
+        <property name="age" value="20"/>
+    </bean>
+
+    <bean id="student3" class="com.yckj.ssm.day01.model.Student">
+        <property name="stuId" value="3"/>
+        <property name="name" value="赵六"/>
+        <property name="sex" value="true"/>
+        <property name="age" value="19"/>
+    </bean>
+
+    <bean id="student1" class="com.yckj.ssm.day01.model.Student">
+        <property name="stuId" value="1"/>
+        <property name="name" value="李四"/>
+        <property name="sex" value="true"/>
+        <property name="age" value="19"/>
+    </bean>
+
+    <bean id="classInfo" class="com.yckj.ssm.day01.model.ClassInfo">
+        <property name="classId" value="1"/>
+        <property name="classCode" value="Java1014"/>
+        <property name="teacher" ref="teacher"/>
+        <property name="studentList">
+            <list>
+                <ref bean="student1"/>
+                <ref bean="student2"/>
+                <ref bean="student3"/>
+            </list>
+        </property>
+    </bean>
+
+</beans>

@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ychs.ssm.day07.mapper.StudentMapper">
+    <resultMap id="addressInfoMap" type="AddressInfo">
+        <id property="addressId" column="addressId" javaType="int"></id>
+        <result property="addressInfo" column="addressInfo" javaType="string"></result>
+        <result property="remark" column="remark" javaType="string"></result>
+    </resultMap>
+    <resultMap id="studentInfoMap" type="StudentInfo">
+        <id property="stuId" column="stuId" javaType="int"></id>
+        <result property="name" column="name" javaType="string"></result>
+        <result property="sex" column="sex" javaType="string"></result>
+        <result property="age" column="age" javaType="int"></result>
+        <association property="addressInfo" resultMap="addressInfoMap"></association>
+    </resultMap>
+
+    <select id="selectStudentById" parameterType="int" resultMap="studentInfoMap">
+        SELECT
+        a.stu_id stuId,
+        a.name,
+        a.age,
+        a.address_id addressId,
+        b.address_info addressInfo,
+        b.remark
+        FROM
+        student_info a,address_info b
+        WHERE
+        a.address_id = b.address_id
+        AND
+        stu_id = #{stuId}
+    </select>
+
+</mapper>

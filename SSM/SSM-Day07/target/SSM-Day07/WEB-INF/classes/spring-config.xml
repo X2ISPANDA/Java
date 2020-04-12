@@ -1,0 +1,101 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+          http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+          http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
+>
+    <context:component-scan base-package="com.**" >
+        <!-- 扫描除了注解为@Controller的类 -->
+        <context:exclude-filter type="annotation" expression="org.springframework.stereotype.Controller"/>
+    </context:component-scan>
+
+    <!-- 引入配置文件,将配置文件中的变量引入Spring容器中，属于全局变量 -->
+    <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:jdbc.properties" />
+    </bean>
+
+<!--   <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+       <property name="driverClassName" value="${driver}"/>
+       <property name="url" value="${url}" />
+       <property name="username" value="${username}"/>
+       <property name="password" value="${password}"/>
+   </bean>-->
+
+    <!-- 阿里Druid 数据库连接池 -->
+    <bean id="druidDataSource" class="com.alibaba.druid.pool.DruidDataSource" destroy-method="close" >
+        <!-- 数据库基本信息配置 -->
+        <property name="url" value="${url}" />
+        <property name="username" value="${username}" />
+        <property name="password" value="${password}" />
+        <property name="driverClassName" value = "${driver}" />
+        <property name="filters" value="${filters}" />
+        <!-- 最大并发连接数 -->
+        <property name="maxActive" value="${maxActive}" />
+        <!-- 初始化连接数量 -->
+        <property name="initialSize" value="${initialSize}" />
+        <!-- 配置获取连接等待超时的时间 -->
+        <property name="maxWait" value="${maxWait}" />
+        <!-- 最小空闲连接数 -->
+        <property name="minIdle" value="${minIdle}" />
+        <!-- 配置间隔多久才进行一次检测，检测需要关闭的空闲连接，单位是毫秒 -->
+        <property name="timeBetweenEvictionRunsMillis" value="${timeBetweenEvictionRunsMillis}" />
+        <!-- 配置一个连接在池中最小生存的时间，单位是毫秒 -->
+        <property name="minEvictableIdleTimeMillis" value="${minEvictableIdleTimeMillis}" />
+        <property name="validationQuery" value="${validationQuery}" />
+        <property name="testWhileIdle" value="${testWhileIdle}" />
+        <property name="testOnBorrow" value="${testOnBorrow}" />
+        <property name="testOnReturn" value="${testOnReturn}" />
+        <property name="maxOpenPreparedStatements" value="${maxOpenPreparedStatements}" />
+        <!-- 打开 removeAbandoned 功能 -->
+        <property name="removeAbandoned" value="${removeAbandoned}" />
+        <!-- 1800 秒，也就是 30 分钟 -->
+        <property name="removeAbandonedTimeout" value="${removeAbandonedTimeout}" />
+        <!-- 关闭 abanded 连接时输出错误日志 -->
+        <property name="logAbandoned" value="${logAbandoned}" />
+    </bean>
+
+    <!--整合Spring和Mybatis框架，将Mybatis引入到Spring当中来，以Spring容器来管理Mybatis功能-->
+    <bean id="sqlSessionFactory" class="org.mybatis.spring.SqlSessionFactoryBean">
+        <!--装配连接数据库的数据源bean-->
+        <!--<property name="dataSource" ref="dataSource"></property>-->
+        <property name="dataSource" ref="druidDataSource"></property>
+        <!--引入Mybatis相关配置-->
+        <property name="configLocation" value="classpath:mybatis-config.xml"/>
+        <!--指明mapper映射文件所在目录-->
+        <property name="mapperLocations" value="classpath:com/ychs/ssm/day07/mapper/*.xml"></property>
+    </bean>
+
+    <!-- 指明DAO接口所在包以及SQL工厂对应的Bean，Spring会自动查找其下的类 -->
+    <bean class="org.mybatis.spring.mapper.MapperScannerConfigurer">
+        <property name="basePackage" value="com.ychs.ssm.day07.mapper" />
+        <property name="sqlSessionFactoryBeanName" value="sqlSessionFactory"></property>
+    </bean>
+
+    <!--配置事务管理器-->
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <!--只需要注入了一个数据源-->
+        <!--<property name="dataSource" ref="dataSource"/>-->
+        <property name="dataSource" ref="druidDataSource"/>
+    </bean>
+
+    <!--引入事务管理器，并借助tx:advice来设置事务通知内容，声明了一个名为userAdvice的Bean，该Bean进行事务管理-->
+    <tx:advice id="txAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <!--查询类操作将数据源设置为只读，其他走默认事务-->
+            <tx:method name="*"/>
+            <tx:method name="query*" propagation="REQUIRED" read-only="true" />
+        </tx:attributes>
+    </tx:advice>
+
+    <!--事务管理切面配置-->
+    <aop:config>
+        <!--定义切点-->
+        <aop:pointcut id="pointcut" expression="execution(* com.ychs.ssm.day07.service.*Service*.*(..)))"/>
+        <!--定义通知，一个通知一个切点的类型使用这种标签，该标签是Spring内部标签-->
+        <aop:advisor advice-ref="txAdvice" pointcut-ref="pointcut"/>
+    </aop:config>
+
+</beans>

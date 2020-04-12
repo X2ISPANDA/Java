@@ -1,0 +1,50 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:p="http://www.springframework.org/schema/p"
+       xmlns:context="http://www.springframework.org/schema/context"
+       xmlns:mvc="http://www.springframework.org/schema/mvc"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans
+      http://www.springframework.org/schema/beans/spring-beans-3.1.xsd
+      http://www.springframework.org/schema/context
+      http://www.springframework.org/schema/context/spring-context-3.1.xsd
+      http://www.springframework.org/schema/mvc
+      http://www.springframework.org/schema/mvc/spring-mvc-4.0.xsd">
+    <bean name="p1" class="com.ychs.pojo.Person"></bean>
+    <bean name="p2" class="com.ychs.pojo.Person"></bean>
+    <bean name="phone" class="com.ychs.pojo.Phone"></bean>
+    <bean name="cb" class="com.ychs.pojo.CollectionBean">
+        <!--<property name="arr" value="12"></property>-->
+        <property name="arr">
+            <array>
+                <value>2</value>
+                <value>3</value>
+            </array>
+        </property>
+        <property name="list">
+            <list>
+                <ref bean="p1"></ref>
+                <ref bean="p2"></ref>
+            </list>
+        </property>
+        <property name="set">
+            <set>
+                <value type="int">12</value>
+                <value type="java.lang.String">12</value>
+                <ref bean="p1"></ref>
+            </set>
+        </property>
+        <property name="map">
+            <map key-type="java.lang.String" value-type="com.ychs.pojo.Phone">
+                <entry key="aa" value-ref="phone"></entry>
+                <entry key="bb" value-ref="phone"></entry>
+            </map>
+        </property>
+        <property name="prop">
+            <props>
+                <prop key="username">root</prop>
+                <prop key="password">root</prop>
+                <prop key="url">com.mysql.cj.jdbc.Driver</prop>
+            </props>
+        </property>
+    </bean>
+</beans>

@@ -1,0 +1,366 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="ArtifactsWorkspaceSettings">
+    <artifacts-to-build>
+      <artifact name="SSM-Spring-Day01:war exploded" />
+    </artifacts-to-build>
+  </component>
+  <component name="ChangeListManager">
+    <list default="true" id="604ecc03-fec7-4dc1-abcb-ab284cd8e8bd" name="Default Changelist" comment="" />
+    <option name="SHOW_DIALOG" value="false" />
+    <option name="HIGHLIGHT_CONFLICTS" value="true" />
+    <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
+    <option name="LAST_RESOLUTION" value="IGNORE" />
+  </component>
+  <component name="DatabaseView">
+    <option name="SHOW_INTERMEDIATE" value="true" />
+    <option name="GROUP_DATA_SOURCES" value="true" />
+    <option name="GROUP_SCHEMA" value="true" />
+    <option name="GROUP_CONTENTS" value="false" />
+    <option name="SORT_POSITIONED" value="false" />
+    <option name="SHOW_EMPTY_GROUPS" value="false" />
+    <option name="AUTO_SCROLL_FROM_SOURCE" value="false" />
+    <option name="HIDDEN_KINDS">
+      <set />
+    </option>
+    <expand />
+    <select />
+  </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="spring-beans.schema" />
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="LogFilters">
+    <option name="FILTER_ERRORS" value="false" />
+    <option name="FILTER_WARNINGS" value="false" />
+    <option name="FILTER_INFO" value="true" />
+    <option name="FILTER_DEBUG" value="true" />
+    <option name="CUSTOM_FILTER" />
+  </component>
+  <component name="MavenImportPreferences">
+    <option name="generalSettings">
+      <MavenGeneralSettings>
+        <option name="localRepository" value="E:\Usual\mavenRepository" />
+        <option name="userSettingsFile" value="E:\Usual\apache-maven-3.6.1-bin\apache-maven-3.6.1\conf\settings.xml" />
+      </MavenGeneralSettings>
+    </option>
+    <option name="importingSettings">
+      <MavenImportingSettings>
+        <option name="importAutomatically" value="true" />
+      </MavenImportingSettings>
+    </option>
+  </component>
+  <component name="ProjectId" id="1XeNFKSUp1eLfKWx8wQrdMcMTuq" />
+  <component name="ProjectViewState">
+    <option name="hideEmptyMiddlePackages" value="true" />
+    <option name="showExcludedFiles" value="true" />
+    <option name="showLibraryContents" value="true" />
+  </component>
+  <component name="PropertiesComponent">
+    <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
+    <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="aspect.path.notification.shown" value="true" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/src/main/resources" />
+    <property name="nodejs_interpreter_path.stuck_in_default_project" value="undefined stuck path" />
+    <property name="nodejs_npm_path_reset_for_default_project" value="true" />
+    <property name="project.structure.last.edited" value="Modules" />
+    <property name="project.structure.proportion" value="0.15" />
+    <property name="project.structure.side.proportion" value="0.2" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="E:\repo\SSM-Spring-Day01\src\main\resources" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="E:\repo\SSM-Spring-Day01\src\main\resources" />
+    </key>
+  </component>
+  <component name="RunManager" selected="JUnit.SpringTest.test01">
+    <configuration name="Test02" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.yckj.ssm.day01.test.Test02" />
+      <module name="SSM-Spring-Day01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yckj.ssm.day01.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test03" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.yckj.ssm.day01.test.Test03" />
+      <module name="SSM-Spring-Day01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yckj.ssm.day01.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="Test04" type="Application" factoryName="Application" temporary="true" nameIsGenerated="true">
+      <option name="MAIN_CLASS_NAME" value="com.yckj.ssm.day01.test.Test04" />
+      <module name="SSM-Spring-Day01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yckj.ssm.day01.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpringTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SSM-Spring-Day01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yckj.ssm.day02.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.yckj.ssm.day02.test" />
+      <option name="MAIN_CLASS_NAME" value="com.yckj.ssm.day02.test.SpringTest" />
+      <option name="TEST_OBJECT" value="class" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="SpringTest.test01" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="SSM-Spring-Day01" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.yckj.ssm.day02.test.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.yckj.ssm.day02.test" />
+      <option name="MAIN_CLASS_NAME" value="com.yckj.ssm.day02.test.SpringTest" />
+      <option name="METHOD_NAME" value="test01" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="server" type="#com.intellij.j2ee.web.tomcat.TomcatRunConfigurationFactory" factoryName="Local" APPLICATION_SERVER_NAME="Tomcat8.5" ALTERNATIVE_JRE_ENABLED="false">
+      <deployment>
+        <artifact name="SSM-Spring-Day01:war exploded">
+          <settings>
+            <option name="CONTEXT_PATH" value="/SSM_Spring_Day01" />
+          </settings>
+        </artifact>
+      </deployment>
+      <server-settings>
+        <option name="BASE_DIRECTORY_NAME" value="Unnamed_SSM-Spring-Day01" />
+      </server-settings>
+      <predefined_log_file enabled="true" id="Tomcat" />
+      <predefined_log_file enabled="true" id="Tomcat Catalina" />
+      <predefined_log_file id="Tomcat Manager" />
+      <predefined_log_file id="Tomcat Host Manager" />
+      <predefined_log_file id="Tomcat Localhost Access" />
+      <RunnerSettings RunnerId="Debug">
+        <option name="DEBUG_PORT" value="1579" />
+      </RunnerSettings>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Cover">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Debug">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <ConfigurationWrapper VM_VAR="JAVA_OPTS" RunnerId="Run">
+        <option name="USE_ENV_VARIABLES" value="true" />
+        <STARTUP>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </STARTUP>
+        <SHUTDOWN>
+          <option name="USE_DEFAULT" value="true" />
+          <option name="SCRIPT" value="" />
+          <option name="VM_PARAMETERS" value="" />
+          <option name="PROGRAM_PARAMETERS" value="" />
+        </SHUTDOWN>
+      </ConfigurationWrapper>
+      <method v="2">
+        <option name="Make" enabled="true" />
+        <option name="BuildArtifacts" enabled="true">
+          <artifact name="SSM-Spring-Day01:war exploded" />
+        </option>
+      </method>
+    </configuration>
+    <list>
+      <item itemvalue="Application.Test02" />
+      <item itemvalue="Application.Test03" />
+      <item itemvalue="Tomcat Server.server" />
+      <item itemvalue="Application.Test04" />
+      <item itemvalue="JUnit.SpringTest" />
+      <item itemvalue="JUnit.SpringTest.test01" />
+    </list>
+    <recent_temporary>
+      <list>
+        <item itemvalue="JUnit.SpringTest.test01" />
+        <item itemvalue="JUnit.SpringTest" />
+        <item itemvalue="Application.Test04" />
+        <item itemvalue="Application.Test03" />
+        <item itemvalue="Application.Test02" />
+      </list>
+    </recent_temporary>
+  </component>
+  <component name="ServiceViewManager">
+    <option name="viewStates">
+      <list>
+        <serviceView>
+          <treeState>
+            <expand>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+              <path>
+                <item name="services root" type="e789fda9:ObjectUtils$Sentinel" />
+                <item name="Tomcat Server" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+                <item name="Running" type="7427dc5b:ServiceModel$ServiceGroupNode" />
+              </path>
+            </expand>
+            <select />
+          </treeState>
+        </serviceView>
+      </list>
+    </option>
+  </component>
+  <component name="SvnConfiguration">
+    <configuration />
+  </component>
+  <component name="TaskManager">
+    <task active="true" id="Default" summary="Default task">
+      <changelist id="604ecc03-fec7-4dc1-abcb-ab284cd8e8bd" name="Default Changelist" comment="" />
+      <created>1581402495273</created>
+      <option name="number" value="Default" />
+      <option name="presentableId" value="Default" />
+      <updated>1581402495273</updated>
+      <workItem from="1581402497159" duration="7764000" />
+      <workItem from="1581416556595" duration="2050000" />
+      <workItem from="1581475757896" duration="17937000" />
+      <workItem from="1582023086388" duration="5145000" />
+    </task>
+    <servers />
+  </component>
+  <component name="TypeScriptGeneratedFilesManager">
+    <option name="version" value="1" />
+  </component>
+  <component name="WindowStateProjectService">
+    <state x="552" y="186" key="#Project_Structure" timestamp="1581411425220">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="552" y="186" key="#Project_Structure/0.0.1920.1050/1920.3.1920.1050@0.0.1920.1050" timestamp="1581411425220" />
+    <state x="414" y="183" key="#com.intellij.execution.impl.EditConfigurationsDialog" timestamp="1581409037790">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="414" y="183" key="#com.intellij.execution.impl.EditConfigurationsDialog/0.0.1920.1050/1920.3.1920.1050@0.0.1920.1050" timestamp="1581409037790" />
+    <state x="712" y="333" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1581569040265">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="712" y="333" key="#com.intellij.fileTypes.FileTypeChooser/0.0.1920.1050/1920.3.1920.1050@0.0.1920.1050" timestamp="1581569040265" />
+    <state x="765" y="218" key="#com.intellij.ide.util.MemberChooser" timestamp="1581586725089">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="765" y="218" key="#com.intellij.ide.util.MemberChooser/0.0.1920.1050/1920.3.1920.1050@0.0.1920.1050" timestamp="1581586725089" />
+    <state x="690" y="282" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog" timestamp="1581408742651">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="690" y="282" key="#com.intellij.util.ui.classpath.ChooseLibrariesDialog/0.0.1920.1050/1920.3.1920.1050@0.0.1920.1050" timestamp="1581408742651" />
+    <state width="1877" height="285" key="GridCell.Tab.0.bottom" timestamp="1582103668573">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="285" key="GridCell.Tab.0.bottom/0.0.1920.1050/1920.3.1920.1050@0.0.1920.1050" timestamp="1582103668573" />
+    <state width="1877" height="285" key="GridCell.Tab.0.center" timestamp="1582103668573">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="285" key="GridCell.Tab.0.center/0.0.1920.1050/1920.3.1920.1050@0.0.1920.1050" timestamp="1582103668573" />
+    <state width="1877" height="285" key="GridCell.Tab.0.left" timestamp="1582103668573">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="285" key="GridCell.Tab.0.left/0.0.1920.1050/1920.3.1920.1050@0.0.1920.1050" timestamp="1582103668573" />
+    <state width="1877" height="285" key="GridCell.Tab.0.right" timestamp="1582103668573">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1877" height="285" key="GridCell.Tab.0.right/0.0.1920.1050/1920.3.1920.1050@0.0.1920.1050" timestamp="1582103668573" />
+    <state width="1293" height="285" key="GridCell.Tab.1.bottom" timestamp="1581416305676">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1293" height="285" key="GridCell.Tab.1.bottom/0.0.1920.1050/1920.3.1920.1050@0.0.1920.1050" timestamp="1581416305676" />
+    <state width="1293" height="285" key="GridCell.Tab.1.center" timestamp="1581416305676">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1293" height="285" key="GridCell.Tab.1.center/0.0.1920.1050/1920.3.1920.1050@0.0.1920.1050" timestamp="1581416305676" />
+    <state width="1293" height="285" key="GridCell.Tab.1.left" timestamp="1581416305676">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1293" height="285" key="GridCell.Tab.1.left/0.0.1920.1050/1920.3.1920.1050@0.0.1920.1050" timestamp="1581416305676" />
+    <state width="1293" height="285" key="GridCell.Tab.1.right" timestamp="1581416305676">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1293" height="285" key="GridCell.Tab.1.right/0.0.1920.1050/1920.3.1920.1050@0.0.1920.1050" timestamp="1581416305676" />
+    <state width="1293" height="285" key="GridCell.Tab.2.bottom" timestamp="1581416305676">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1293" height="285" key="GridCell.Tab.2.bottom/0.0.1920.1050/1920.3.1920.1050@0.0.1920.1050" timestamp="1581416305676" />
+    <state width="1293" height="285" key="GridCell.Tab.2.center" timestamp="1581416305676">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1293" height="285" key="GridCell.Tab.2.center/0.0.1920.1050/1920.3.1920.1050@0.0.1920.1050" timestamp="1581416305676" />
+    <state width="1293" height="285" key="GridCell.Tab.2.left" timestamp="1581416305676">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1293" height="285" key="GridCell.Tab.2.left/0.0.1920.1050/1920.3.1920.1050@0.0.1920.1050" timestamp="1581416305676" />
+    <state width="1293" height="285" key="GridCell.Tab.2.right" timestamp="1581416305676">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state width="1293" height="285" key="GridCell.Tab.2.right/0.0.1920.1050/1920.3.1920.1050@0.0.1920.1050" timestamp="1581416305676" />
+    <state x="440" y="102" key="SettingsEditor" timestamp="1581571779605">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="440" y="102" key="SettingsEditor/0.0.1920.1050/1920.3.1920.1050@0.0.1920.1050" timestamp="1581571779605" />
+    <state x="486" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1581769419022">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="486" y="130" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.1920.1050/1920.3.1920.1050@0.0.1920.1050" timestamp="1581769419022" />
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup" timestamp="1581591521450">
+      <screen x="0" y="0" width="1920" height="1050" />
+    </state>
+    <state x="623" y="227" width="672" height="678" key="search.everywhere.popup/0.0.1920.1050/1920.3.1920.1050@0.0.1920.1050" timestamp="1581591521450" />
+  </component>
+</project>

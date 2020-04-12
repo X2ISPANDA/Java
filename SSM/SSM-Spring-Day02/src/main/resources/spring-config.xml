@@ -1,0 +1,30 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+          http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+          http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
+>
+    <context:component-scan base-package="com.**" />
+
+    <!--注册通知类为Spring容器当中的一个bean-->
+    <bean id="advice" class="com.yckj.ssm.day02.advice.AdviceInfo"/>
+
+    <!--Spring切面配置标签,一个标签就代表一个切面-->
+    <aop:config>
+        <!--定义切面当中的切点-->
+        <aop:pointcut id="pointcut" expression="execution(* com.yckj.ssm.day02.services.*Services.*(..))"/>
+        <!--advice通知类用来定义当前切面将要执行的非业务功能代码-->
+        <aop:aspect ref="advice">
+           <!-- <aop:before method="before" pointcut-ref="pointcut"></aop:before>
+            <aop:after method="after" pointcut-ref="pointcut"></aop:after>
+            <aop:after-returning method="afterReturning" pointcut-ref="pointcut"></aop:after-returning>
+            <aop:after-throwing method="afterThrowing" pointcut-ref="pointcut"></aop:after-throwing>-->
+            <aop:around method="around" pointcut-ref="pointcut"></aop:around>
+        </aop:aspect>
+    </aop:config>
+
+
+</beans>

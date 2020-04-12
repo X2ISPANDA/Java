@@ -1,0 +1,20 @@
+<?xml version='1.0' encoding='UTF-8'?>
+
+<beans xmlns="http://www.springframework.org/schema/beans" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:aop="http://www.springframework.org/schema/aop" xmlns:tx="http://www.springframework.org/schema/tx" xmlns:context="http://www.springframework.org/schema/context"
+       xsi:schemaLocation="
+          http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd
+          http://www.springframework.org/schema/aop http://www.springframework.org/schema/aop/spring-aop.xsd
+          http://www.springframework.org/schema/context http://www.springframework.org/schema/context/spring-context.xsd
+          http://www.springframework.org/schema/tx http://www.springframework.org/schema/tx/spring-tx.xsd"
+>
+    <!--<context:annotation-config/>-->
+    <context:component-scan base-package="com.**"></context:component-scan>
+<!--    <bean id="userDao" class="com.yckj.ssm.day01.dao.UserDao"></bean>
+    <bean id="schoolDao" class="com.yckj.ssm.day01.dao.SchoolDao"></bean>
+    <bean id="userServices" class="com.yckj.ssm.day01.services.UserServices"></bean>
+    <bean id="studentServices" class="com.yckj.ssm.day01.services.StudentServices"></bean>
+    <bean id="userServlet" class="com.yckj.ssm.day01.servlet.UserServlet"></bean>
+    <bean id="studentServlet" class="com.yckj.ssm.day01.servlet.StudentServlet"></bean>-->
+
+
+</beans>
