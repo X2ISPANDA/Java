@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright (c) 2019.
+  ~ All Rights Reserved,Designed By Mingyu Xiong
+  -->
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ychs.mapper.StudentMapper">
+    <resultMap id="studentAndClazz" type="student">
+        <id column="sno" property="sno"></id>
+        <result column="sname" property="sname"></result>
+        <result column="age" property="age"></result>
+        <result column="cno" property="cno"></result>
+
+        <!--一对一的对应关系-->
+        <association property="clazz" javaType="com.ychs.pojo.Clazz">
+            <id property="cno" column="cno"></id>
+            <result property="cname" column="cname"></result>
+        </association>
+    </resultMap>
+    <!--一对一关系-->
+   <select id="getStudentAndClazz" resultMap="studentAndClazz">
+       select * from t_student3 s,t_class c where s.cno=c.cno(+)
+   </select>
+
+    <resultMap id="stuClazzCourse" type="student">
+        <id column="sno" property="sno"></id>
+        <result column="sname" property="sname"></result>
+        <result column="age" property="age"></result>
+        <result column="cno" property="cno"></result>
+        <association property="clazz" javaType="com.ychs.pojo.Clazz">
+            <result column="cno" property="cno"></result>
+            <result column="cname" property="cname"></result>
+        </association>
+        <collection property="courses" ofType="com.ychs.pojo.Course">
+            <result column="courseNo" property="cno"></result>
+            <result column="courseName" property="cname"></result>
+            <association property="sc" javaType="com.ychs.pojo.SC">
+                <id property="grade" column="grade"></id>
+            </association>
+        </collection>
+    </resultMap>
+    <select id="getStuAndClazzAndCourse" resultMap="stuClazzCourse">
+        select s.*,c.cname,co.cno courseNo,co.cname courseName from t_student3 s
+        left join t_class c on s.cno=c.cno
+        left join t_scgrade sc on s.sno=sc.sno
+        left join t_course co on sc.cno=co.cno
+
+    </select>
+
+    <resultMap id="lazyResult" type="student">
+        <id column="sno" property="sno"></id>
+        <result column="sname" property="sname"></result>
+        <!--property:查询出的SQL语句的字段封装成Student那个对象
+            javaType:这个property对应的Java类型
+            select:延迟加载要执行的SQL语句,namespace+id
+            column:查询班级信息需要的参数-->
+        <association property="clazz" javaType="com.ychs.pojo.Clazz"
+                     column="cno" select="com.ychs.mapper.ClazzMapper.getClazzByCno">
+        </association>
+    </resultMap>
+    <!--延迟加载针对的是一对一或一对多,多对多关系-->
+    <select id="lazyGetStudent" resultMap="lazyResult">
+        select * from t_student3
+    </select>
+
+
+</mapper>

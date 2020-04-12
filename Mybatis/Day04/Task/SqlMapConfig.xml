@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <properties resource="db.properties"></properties>
+    <settings>
+        <!--延迟加载设置成true-->
+        <setting name="lazyLoadingEnabled" value="true"/>
+        <!--积极加载设置成false-->
+        <setting name="aggressiveLazyLoading" value="false"/>
+        <!--开启二级缓冲-->
+        <setting name="cacheEnabled" value="true"/>
+    </settings>
+    <!--别名的配置-->
+    <typeAliases>
+        <package name="com.ychs.pojo"/>
+    </typeAliases>
+    <environments default="development">
+        <environment id="development">
+            <transactionManager type="JDBC"/>
+            <dataSource type="POOLED">
+                <property name="driver" value="${driver}"/>
+                <property name="url" value="${url}"/>
+                <property name="username" value="${username}"/>
+                <property name="password" value="${password}"/>
+            </dataSource>
+        </environment>
+    </environments>
+    <!--引入mapper映射文件-->
+    <mappers>
+        <!--<mapper resource="org/mybatis/example/BlogMapper.xml"/>-->
+        <package name="com.ychs.mapper"/>
+    </mappers>
+</configuration>

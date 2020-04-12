@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright (c) 2019.
+  ~ All Rights Reserved,Designed By Mingyu Xiong
+  -->
+
+<!DOCTYPE generatorConfiguration PUBLIC "-//mybatis.org//DTD MyBatis Generator Configuration 1.0//EN" "http://mybatis.org/dtd/mybatis-generator-config_1_0.dtd" >
+
+
+<generatorConfiguration>
+    <!-- 加载数据库配置文件 -->
+    <properties resource="db.properties" />
+    <!-- 一个数据库一个context -->
+    <context id="testTables">
+        <!-- 去除自动生成的注释 -->
+        <commentGenerator>
+            <property name="suppressAllComments" value="true" /><!-- 是否生成注释 -->
+        </commentGenerator>
+        <!-- 数据库连接配置 -->
+        <jdbcConnection driverClass="${driver}"
+                        connectionURL="${url}" userId="${username}" password="${password}">
+        </jdbcConnection>
+
+        <!-- 关于类型转换 -->
+        <javaTypeResolver>
+            <!-- 是否使用bigDecimal， false可自动转化以下类型（Long, Integer, Short, etc.） -->
+            <property name="forceBigDecimals" value="false" />
+        </javaTypeResolver>
+
+        <!-- 生成实体类地址 -->
+        <javaModelGenerator targetPackage="com.ychs.pojo"
+                            targetProject=".\Mybatis\Day04\Lesson">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false" />
+            <!-- 从数据库返回的值清理前后的空格 -->
+            <property name="trimStrings" value="true" />
+        </javaModelGenerator>
+
+        <!-- 指定生成mapper配置文件 的位置 -->
+        <sqlMapGenerator targetPackage="com.ychs.mapper"
+                         targetProject=".\Mybatis\Day04\Lesson">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false" />
+        </sqlMapGenerator>
+
+        <!-- 指定生成mapper接口的位置 -->
+        <javaClientGenerator targetPackage="com.ychs.mapper"
+                             targetProject=".\Mybatis\Day04\Lesson" type="XMLMAPPER">
+            <!-- enableSubPackages:是否让schema作为包的后缀 -->
+            <property name="enableSubPackages" value="false" />
+        </javaClientGenerator>
+
+        <!-- 配置表信息 -->
+        <table tableName="t_user"></table>
+    </context>
+</generatorConfiguration>

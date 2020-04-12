@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright (c) 2019.
+  ~ All Rights Reserved,Designed By Mingyu Xiong
+  -->
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ychs.mapper.SchoolMapper">
+    <sql id="queryCondition">
+    <where>
+        <if test="schoolName!=null and schoolName!=''">
+            and schoolName like '%${schoolName}%'
+        </if>
+    </where>
+    </sql>
+
+    <select id="getSchool" resultType="school" parameterType="school">
+    select * from t_school
+    <include refid="queryCondition"></include>order by id desc
+    limit ${(curPage-1)*everyCount},#{everyCount}
+  </select>
+    
+    <select id="getSchoolTotal" parameterType="school" resultType="int">
+        select count(*) from t_school
+        <include refid="queryCondition"></include>
+    </select>
+</mapper>

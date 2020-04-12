@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright (c) 2019.
+  ~ All Rights Reserved,Designed By Mingyu Xiong
+  -->
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ychs.mapper.UserMapper">
+    <select id="login" parameterType="user" resultType="user">
+        select * from t_user where username=#{username} and password=#{password}
+    </select>
+</mapper>

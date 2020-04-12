@@ -1,0 +1,19 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright (c) 2019.
+  ~ All Rights Reserved,Designed By Mingyu Xiong
+  -->
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<!--namespace:命名空间-->
+<mapper namespace="user">
+    <!--id:在这个xml文件中是唯一标识,标识的是这个sql语句
+        parameterType:参数类型-->
+    <select id="selectUserByUsername" parameterType="string" resultType="user">
+    <!--#{}:代表的是占位符
+        ${}:拼接符:sql注入问题-->
+        select * from t_user where username=#{username}
+    </select>
+</mapper>

@@ -1,0 +1,82 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<web-app xmlns="http://xmlns.jcp.org/xml/ns/javaee"
+         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+         xsi:schemaLocation="http://xmlns.jcp.org/xml/ns/javaee http://xmlns.jcp.org/xml/ns/javaee/web-app_4_0.xsd"
+         version="4.0">
+    <filter>
+        <filter-name>oneFilter</filter-name>
+        <filter-class>com.ychs.filter.OneFilter</filter-class>
+    </filter>
+
+    <filter>
+        <filter-name>A</filter-name>
+        <filter-class>com.ychs.filter.AppppppppFilter</filter-class>
+    </filter>
+
+    <filter>
+        <filter-name>B</filter-name>
+        <filter-class>com.ychs.filter.BBBBFilter</filter-class>
+    </filter>
+
+    <filter>
+        <filter-name>C</filter-name>
+        <filter-class>com.ychs.filter.CFilter</filter-class>
+    </filter>
+
+    <filter>
+        <filter-name>D</filter-name>
+        <filter-class>com.ychs.filter.DFilter</filter-class>
+    </filter>
+
+    <filter>
+        <filter-name>E</filter-name>
+        <filter-class>com.ychs.filter.EFilter</filter-class>
+    </filter>
+
+
+    <filter-mapping>
+        <filter-name>oneFilter</filter-name>
+        <url-pattern>*.jpg</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>A</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>B</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+    <filter-mapping>
+        <filter-name>C</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>D</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+    <filter-mapping>
+        <filter-name>E</filter-name>
+        <url-pattern>/*</url-pattern>
+    </filter-mapping>
+
+
+
+    <listener>
+        <listener-class>com.ychs.listener.TwoListener</listener-class>
+    </listener>
+    <servlet>
+        <servlet-name>FirstServlet</servlet-name>
+        <servlet-class>com.ychs.controller.FirstServlet</servlet-class>
+    </servlet>
+    
+    <servlet-mapping>
+        <servlet-name>FirstServlet</servlet-name>
+        <url-pattern>/first.do</url-pattern>
+    </servlet-mapping>
+
+
+</web-app>

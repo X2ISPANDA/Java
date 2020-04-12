@@ -1,0 +1,26 @@
+<!--
+  ~ Copyright (c) 2019.
+  ~ All Rights Reserved,Designed By Mingyu Xiong
+  -->
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ychs.mapper.ClazzMapper">
+    <resultMap id="clazzAndStudent" type="com.ychs.pojo.Clazz">
+        <id column="cno" property="cno"></id>
+        <result column="cname" property="cname"></result>
+        <collection property="students" ofType="com.ychs.pojo.Student">
+            <id column="sno" property="sno"></id>
+            <result column="sname" property="sname"></result>
+            <result column="age" property="age"></result>
+            <result column="cno" property="cno"></result>
+        </collection>
+    </resultMap>
+    <select id="getClazzAndStudent" resultMap="clazzAndStudent">
+        select * from t_class c,t_student3 s where s.cno(+)=c.cno
+    </select>
+    <select id="getClazzByCno" parameterType="string" resultType="clazz">
+        select * from t_class where cno=#{cno}
+    </select>
+</mapper>

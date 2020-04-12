@@ -25,7 +25,7 @@ public class Demo3 {
 }
 
 class Demo3Son extends Demo3 {
-    public static void main(String[] args) {
+    public static void main(String args[]) {
 
     }
 }

@@ -1,0 +1,14 @@
+<component name="ArtifactManager">
+  <artifact type="war" name="uol:war">
+    <output-path>$PROJECT_DIR$/Web/uol/target</output-path>
+    <properties id="maven-jee-properties">
+      <options>
+        <module>uol</module>
+        <packaging>war</packaging>
+      </options>
+    </properties>
+    <root id="archive" name="uol.war">
+      <element id="artifact" artifact-name="uol:war exploded" />
+    </root>
+  </artifact>
+</component>

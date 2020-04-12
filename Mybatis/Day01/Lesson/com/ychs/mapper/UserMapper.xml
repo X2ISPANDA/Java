@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright (c) 2019.
+  ~ All Rights Reserved,Designed By Mingyu Xiong
+  -->
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ychs.mapper.UserMapper">
+   <!--id的命名:对应接口中方法的名称-->
+    <insert id="insertUser" parameterType="user">
+        <selectKey keyProperty="username" order="BEFORE" resultType="string">
+            SELECT sys_guid() FROM dual
+        </selectKey>
+            insert into t_user values(#{username},#{password})
+    </insert>
+    <select id="getUsersByUsername" parameterType="user" resultType="user">
+        select * from t_user where username like '%'||#{username}||'%'
+    </select>
+</mapper>

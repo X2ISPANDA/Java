@@ -102,7 +102,7 @@ public class Clazz {
             ps = conn.prepareStatement(sql);
             //5.设置参数
             //6.执行SQL
-           rs = ps.executeQuery();
+            rs = ps.executeQuery();
             //7.遍历结果集
             while (rs.next()) {
                 System.out.println(rs.getString("cno") + "," +

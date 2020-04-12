@@ -1,0 +1,24 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!--
+  ~ Copyright (c) 2019.
+  ~ All Rights Reserved,Designed By Mingyu Xiong
+  -->
+
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ychs.mapper.StudentMapper">
+
+   <select id="getStudentBySno" parameterType="HashMap" resultType="student">
+        <!--#{}里放的是hashmap的key,通过key能娶到它的value值-->
+       select * from t_student3 where sno=#{aaa}
+   </select>
+
+    <select id="getStudentByHashMap" parameterType="hashMap" resultType="hashMap">
+        select * from t_student3 where sno=#{bbb}
+    </select>
+    
+    <select id="getStuAndCname" resultType="Student">
+        select s.*,c.cname from t_student3 s left join t_class c on s.cno=c.cno
+    </select>
+</mapper>
