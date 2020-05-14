@@ -1,240 +1,266 @@
-# Spring MVC
+# SSM
 
-***Spring MVC容器依赖于Spring容器。先加载Spring容器再加载SpringMVC容器。***
+<span style="color:red;font-size:30px">SSM是由Spring+Spring MVC+Mybatis三种技术框架集成的技术架构，提供一种简化Web应用系统开发的解决方案。</span>
 
-## 容器Bean加载的优化
-
-- @Controller：SpringMVC中的标签,标注于类上,将一个类声明为SpringMVC控制器类型的Bean。
-- @RequestMapping：SpringMVC中的标签,可以标注于类上，也可以标注于方法名上，用来处理请求地址映射的注解。
-
-**SpringMVC和Servlet相比的优势:**
-
-- 加了@Controller注解,通过前端控制器DispatcherServlet,使用@RequestMapping注解进行路径分配,不需要像Servlet那样人为判断内部功能。
-- SpringMVC配置简单,一个Servlet需要在web.xml中配置8行
-- 一个Servlet只能处理一个请求,方法的入口只有一个,局限性太大。代码复用性不强。
-- Servlet代码耦合高。
-- Servlet获取表单中的入参需要编写大量的入参获取代码。
-- Spring学习简单,并且提供了很多个性化的功能模块。
-
-## 映射处理器
-
-```
- <!--开启SpringMVC注解特性标签-->
-    <mvc:annotation-driven></mvc:annotation-driven>
-
-    <!--配置JSP类型的视图解析器-->
-    <bean class="org.springframework.web.servlet.view.InternalResourceViewResolver">
-        <!--让SoringMVC能够支持JSTL表达式相关内容-->
-        <property name="viewClass" value="org.springframework.web.servlet.view.JstlView"></property>
-        <!--前缀-->
-        <property name="prefix">
-            <value>/npage/</value>
-        </property>
-        <!--后缀-->
-        <property name="suffix">
-            <value>.jsp</value>
-        </property>
-    </bean>
-```
-
-
-
-`Spring MVC中的Controller进行页面处理的时候,默认是请求转发的原理。` 
-
-### 参数绑定
-
-- HttpServletRequest类型由Spring MVC自动提供
-- HttpServletResponse类型由Spring MVC自动提供
-- HttpSession类型由Spring MVC自动提供
-- Spring MVC支持String类型以及基础数据类型的参数的绑定,要保证参数名称与请求报文当中的数据名称的一致,并且在一定程度上支持数据类型转换。
-- Spring MVC支持POJO类型数据的参数绑定,要求页面上传入请求报文当中的数据名称与POJO类的属性名一致,如果能够从请求报文中获取POJO属性对应的值,则进行设置,否则设置默认值。
-- 针对页面上存在的checkbox这种复选框的数据,Spring MVC同样支持以数组的方式进行参数绑定。
-- Spring MVC支持List和Map的参数绑定。
-- @RequestParam注解用来获取页面上与传入参数名字不一样的参数，map数据类型的绑定中也需要使用。
-- Model和ModelMap数据类型的参数绑定，提供将一组值对添加到request作用域当中去。
-
-***自定义参数绑定器***
-
-1. 自定义转换器实现Converter类，需要转换什么类型则泛型写什么类型
-
-   ```
-   public class StringToDateConverter implements Converter<String, Date> {
-   
-       /**
-        * 入参String类型的时间由SpringMVC容器负责传入
-        * String数据来源于请求报文
-        * convert方法负责将String时间转换成Date类型，之后进行返回
-        * 返回后的Date同样由SpringMVC容器负责将其绑定到Controller方法的入参当中去。
-        * @param dateString
-        * @return
-        */
-       @Override
-       public Date convert(String dateString) {
-           Date date = null;
-           DateFormat dateFormat = new SimpleDateFormat("yyyy-MM-dd hh:mm:ss");
-           try {
-               date = dateFormat.parse(dateString);
-           } catch (ParseException e) {
-               e.printStackTrace();
-           }
-           return date;
-       }
-   }
-   
-   ```
-
-2. 在spring mvc的配置文件中注册转换器
-
-   ```
-    <!--开启SpringMVC注解特性标签-->
-       <mvc:annotation-driven conversion-service="conversionService"></mvc:annotation-driven>
-   
-   
-   <bean id="conversionService"
-             class="org.springframework.format.support.FormattingConversionServiceFactoryBean">
-           <property name="converters">
-               <list>
-                   <!--<ref bean="stringToDateConverter"></ref>-->
-                   <bean class="com.ychs.ssm.day04.util.StringToDateConverter"></bean>
-               </list>
-           </property>
-       </bean>
-   ```
-
-3. 把需要转换的入参数据类型写成需要转换的类型即可
-
-***出参处理***
-
-- Controller方法出参处理三种情况：重定向、请求转发、Ajax请求响应
-
-1. void类型的出参
-   - 使用request对象进行请求转发的响应,需要写完整的服务端相对路径。
-   - 使用重定向response对象进行重定向响应，需要写客户端相对路径
-   - 使用response对象的字节流进行响应，支持ajax的请求响应。
-   - 使用response对象的字符流进行响应，支持文件下载操作。
-2. String类型的出参
-   - 直接返回一个字符串，该字符串代表Spring MVC视图解析器解析的路径。默认使用的是请求转发操作。
-   - 当字符串以forward:开头，代表当前的响应方式为请求转发方式，冒号后面的路径为请求转发完整的服务端相对路径，视图解析器不进行解析。
-   - 当返回字符串以redirect:开头的时候，代表当前请求以重定向的方式进行相应，重定向本质上是客户端请求，需要编写项目的项目名，但是Spring MVC默认帮我们编写了项目名（有局限性），所以不需要写项目名称，类似于服务端路径。
-3. ModelAndView类型的出参
-   - setViewName方法设置视图解析器解析的转发路径。以转发的方式进行请求的响应；addObject方法在request域中添加域属性，要求两个入参，一个代表request域属性的名称，一个代表域属性的值。
-4. pojo类型的出参
-   - 将POJO对象转换为JSON格式的字符串,进行流的响应,提供Ajax的请求支持。
-5. List/Map类型的出参
-   - 将List/Map转换为JSON格式的字符串,进行流的响应,提供Ajax的请求支持。
-6. 一个Controller方法可以转发到另一个方法当中去
-
-### Spring MVC数据回显的支持
-
-- 对于基础数据类型以及String类型的数据回显,需要通过request对象的域功能来实现。
-- 对于POJO类型的数据，在进行参数绑定的时候，默认就会将该对象添加到Request对象的域当中，该域属性的属性名为当前对象类型的首字母小写。
-
-> @ModelAttribute注解在数据回显当中的使用：
+> - Struts2：轻量级的MVC框架，主要解决了请求分发的问题，重心在控制层和表现层。低侵入性，与业务代码的耦合度很低。Struts2实现了MVC，并提供了一系列API，采用模式化方式简化业务开发过程。
 >
-> - 用于明确指定将POJO对象设置到Request域当中时的属性名。
-> - 定义在方法声明上面,要求当前的方法要求当前的方法必须要有一个返回值,@ModelAttribute注解用来指定返回值的域属性名称,将该返回值存入Request对象的域当中,当当前Controller类中的其他请求方法被调用之前,@ModelAttribute注解定义的方法会提前执行,设置相关的域属性。
+> - Hibernate是一种ORM框架，全称为 Object_Relative DateBase-Mapping**，在Java对象与关系数据库之间**建立某种映射，以实现直接存取Java对象**！**
 
-### Spring MVC提供的乱码过滤器
+## Spring
+
+- Spring框架的核心功能是：维护对象之间的依赖关系。
+- Spring框架以容器的方式来管理维护对象之间的依赖关系。 
+
+### Bean对象的注入方式
+
+1. 属性注入
+
+2. 构造器注入
+
+### IOC   <span style="color:red;font-size：40px">思想</span>
+
+`Inversion of Control 控制反转`
+
+所有的类都会在spring容器中登记，告诉spring你是个什么东西，你需要什么东西，然后spring会在系统运行到适当的时候，把你要的东西主动给你，同时也把你交给其他需要你的东西。所有的类的创建、销毁都由 spring来控制，也就是说控制对象生存周期的不再是引用它的对象，而是spring。对于某个具体的对象而言，以前是它控制其他对象，现在是所有对象都被spring控制，所以这叫控制反转。
+
+### DI   <span style="color:red;font-size：40px">方法</span>
+
+`Dependency Injection 依赖注入`
+
+IoC的一个重点是在系统运行中，动态的向某个对象提供它所需要的其他对象。这一点是通过DI（Dependency Injection，依赖注入）来实现的。
+
+`理解DI的关键是：“谁依赖谁，为什么需要依赖，谁注入谁，注入了什么”，那我们来深入分析一下：`
+
+●	谁依赖于谁：当然是应用程序依赖于IoC容器；
+●	为什么需要依赖：应用程序需要IoC容器来提供对象需要的外部资源；
+●	谁注入谁：很明显是IoC容器注入应用程序某个对象，应用程序依赖的对象；
+●	注入了什么：就是注入某个对象所需要的外部资源（包括对象、资源、常量数据）。
+
+### Bean的作用域
+
+- 默认单例模式
+- scope="prototype"多例模式
+
+### Bean对象的懒加载
+
+ `lazy-init属性`
+
+未通过懒加载的将在加载配置文件时生成bean对象,而通过懒加载的将在getbean时产生。
+
+### 自动装配策略
+
+1. no
+2. byName自动装配策略
+3. byType自动装配策略
+4. constructor构造器装配
+5. autodetect自适应装配
+6. default采用父级default-autowire 标签配置
+
+#### 使用注解进行Bean装配
+
+`<context:annotation-config/>`
+
+`<context:component-scan base-package="com.**"></context:component-scan>`
+
+- @Component 表示是一个Bean组件 
+- <span style="color:red;font-size:25px">@Autowired</span> **主要用这个进行自动装配**
+- @Resource `hibernate常用`
+-  @Configuration 将该类注册为Spring配置文件
+-  @Bean 将方法注册成为Bean
+-  @Scope 卸载方法上 设置作用域
+
+<span style="color:blue;font-size:30px">注解方式可以不提供get/set方法,bean标签装配方式必须提供成员变量的get/set方法</span>
+
+### Spring与Junit单元测试 
 
 ```
-<filter>
-    <filter-name>encodingFilter</filter-name>
-    <filter-class>org.springframework.web.filter.CharacterEncodingFilter</filter-class>
-    <init-param>
-      <param-name>encoding</param-name>
-      <param-value>UTF-8</param-value>
-    </init-param>
-    <init-param>
-      <param-name>forceEncoding</param-name>
-      <param-value>true</param-value>
-    </init-param>
-  </filter>
-  <filter-mapping>
-    <filter-name>encodingFilter</filter-name>
-    <url-pattern>/*</url-pattern>
-  </filter-mapping>
+@RunWith(SpringJUnit4ClassRunner.class)
+@ContextConfiguration(locations = {"classpath:spring-config04.xml"})
 ```
 
-### Spring MVC处理AJAX请求的入门案例
+### AOP面向切面编程
 
-Spring MVC以Jaskson组件来处理JSON数据的返回。
+`Aspect Oriented Programming`
 
-- 如果直接以response对象的字符串流来做响应，那Spring MVC在做响应报文的处理时，响应体的类型为默认的字符串形式，jQuery接收到响应报文之后，需要将JSON格式的字符串手动转换成了JSON对象，之后再去做相关处理。
-- 如果以@ResponseBody注解来进行AJAX响应，该注解会默认调用第三方的JSON格式转换组件，去转换返参对象，将返参对象转换为JSON格式字符串，并且会设置Response响应体的类型为application/json。之后，客户端jQuery得到响应报文之后，发现该响应报文默认为json报文，会直接转换成功方法当中的入参，无需手动进行JSON数据的转换。 
+AOP把软件系统分为两个部分：核心关注点和横切关注点。业务处理的主要流程是核心关注点，与之关系不大的部分是横切关注点。描述横切关注点的具体内容称之为切面。
 
-Spring MVC接收JSON格式字符串的处理
+描述切面的常用概念：
 
-### Spring MVC对于RESTful风格的支持
+- 连接点**JoinPoint**
 
-***RESTful设计风格 的要求：***
+- 通知**Advice**
 
-- 请求路径当中不允许出现.do等请求标识，只允许出现/这类型的路径。
-- RESTful请求的响应必须是JSON格式的数据。
-- 对于RESTful风格的POST请求,要求入参必须是JSON格式的数据,出参也必须是JSON格式的数据。
-- 对于RESTful风格的GET请求，一般来说不允许携带数据，也就是说不允许通过？来带数据，如果一定要携带数据，也是通过/路径的方式来携带。出参也必须为JSON格式的数据。
+- 切面**Aspect**
 
-### Spring MVC自带的统一异常处理的使用
+  ```
+  切面是散落在系统各处通用的业务逻辑代码，如日志模块、权限模块、事务模块等。
+  
+  切面用来装载切入点PointCut和通知Advice
+  
+  切面通常是一个类，可以定义切入点和通知。类是对物体特征的抽象，切面是对横切关注点的抽象。
+  
+  切面是业务流程运行的某个特定步骤，是应用运行过程中的关注点，关注点通常会横切多个对象，因此也被称为横切关注点。
+  ```
 
-- 1. 编写自定义异常类然后再spring MVC的配置文件中配置
+  ```
+  <aop:aspect ref="advice">
+      <aop:before method="before" pointcut-ref="pointcut"></aop:before>
+      <aop:after method="after" pointcut-ref="pointcut"></aop:after>
+      <aop:after-returning method="afterReturning" pointcut-ref="pointcut"></aop:after-returning>
+      <aop:after-throwing method="afterThrowing" pointcut-ref="pointcut"></aop:after-throwing>
+  </aop:aspect>
+  ```
+
+- 切入点**PointCut**
+
+  `使用切面编程的地方`
+
+  ```
+  <aop:pointcut id="pointcut" expression="execution(*com.yckj.ssm.day02.services.*Services.*(..))"/>
+  ```
+
+***AOP五大通知类型***
+
+- 前置通知 **before**
+
+- 后置通知 **after**
+
+  无论如何都会执行
+
+- 后置成功通知 **after-returning**
+
+  只有切入点成功执行才会执行
+
+- 后置失败通知 **after-throwing**
+
+  只有切入点报异常才会执行
+
+- 环绕通知 **around**
+
+  在目标方法执行之前和之后都可以执行额外代码的通知。通过ProceedingJoinPoint proceedingJoinPoint获取方法的全部信息。通过 proceedingJoinPoint.proceed()执行方法
+
+  ```
+    //当前正在执行方法的对象的类名
+          Class<?> clazz = proceedingJoinPoint.getTarget().getClass();
+          String clazzName = clazz.getName();
+  
+          //当前正在执行的方法名
+          String methodName = proceedingJoinPoint.getSignature().getName();
+  
+          //当前正在执行方法的入参
+          Object[] args = proceedingJoinPoint.getArgs();
+  
+          System.out.println("["+new Date()+"]"
+                  + "[" + clazzName+"]"
+                  +"["+methodName+"]"
+                  +"["+ Arrays.toString(args)+"]");
+  
+  
+          try {
+              proceedingJoinPoint.proceed();
+          } catch (Throwable throwable) {
+              throwable.printStackTrace();
+          }
+          System.out.println("环绕通知开始执行！");
+      }
+  ```
+
+  
+
+#### AOP注解方式开启
+
+  `<aop:aspectj-autoproxy></aop:aspectj-autoproxy>开启注解方式`
+
+- @Pointcut("execution(* com.yckj.ssm.day02.services.*Services.*(..))")  **切点**定义在任意一个普通方法上面
+- @Aspect:切面。写在类上面。
+- @Before：Advice（通知）的一种，切入点的方法体执行之前执行。
+- @Around：Advice（通知）的一种，环绕切入点执行也就是把切入点包裹起来执行。
+- @After：Advice（通知）的一种，在切入点正常运行结束后执行。
+- @AfterReturning：Advice（通知）的一种，在切入点正常运行结束后执行，异常则不执行
+- @AfterThrowing：Advice（通知）的一种，在切入点运行异常时执行。
+  
+
+### Spring事务管理
+
+> 在软件开发领域全部执行或者全部不执行的操作称之为事务。
+>
+> 事务的ACID特性：
+>
+> - 原子性Atomicity
+> - 一致性Consistency
+> - 隔离性Isolation
+> - 持久性Durability
+
+#### 事务隔离级别
+
+- PROPAGATION_REQUIRED：如果存在一个事务，则支持当前事务。如果没有事务则开启一个新的事务。
+- PROPAGATION_SUPPORTS：如果存在一个事务，支持当前事务。如果没有事务，则非事务的执行
+- PROPAGATION_MANDATORY:如果已经存在一个事务，支持当前事务。如果没有一个活动的事务，则抛出异常
+- PROPAGATION_REQUIRES_NEW：总是开启一个新的事务。如果一个事务已经存在，则将这个存在的事务挂起
+- PROPAGATION_NOT_SUPPORTED：总是非事务地执行，并挂起任何存在的事务
+- PROPAGATION_NESTED：如果一个活动的事务存在，则运行在一个嵌套的事务中. 如果没有活动事务, PROPAGATION_REQUIRED 属性执行
+
+#### Spring编程式事务管理
+
+UserDao.java
 
 ```
- <bean class="org.springframework.web.servlet.handler.SimpleMappingExceptionResolver">
-        <!--配置出现绝大多数异常时，处理的页面-->
-        <property name="defaultErrorView" value="/error/unitedError"></property>
-        <!--当出现异常时，异常处理页面当中想要获取异常信息通过哪个对象名来获取-->
-        <property name="exceptionAttribute" value="exception"/>
+ DefaultTransactionDefinition transactionDefinition = new DefaultTransactionDefinition();
 
-        <!--定义需要特殊处理的异常，这是重点-->
-        <property name="exceptionMappings">
-            <props>
-                <prop key="com.ychs.ssm.day04.util.BusiException">/error/busiError</prop>
-            </props>
-            <!--还可以定义其他的自定义异常-->
-        </property>
+        //设置事务的传播行为
+        transactionDefinition.setPropagationBehavior(TransactionDefinition.PROPAGATION_REQUIRED);
+
+        //设置事务的隔离级别
+        transactionDefinition.setIsolationLevel(TransactionDefinition.ISOLATION_READ_COMMITTED);
+
+        //设置事务的超时时间
+        transactionDefinition.setTimeout(10);
+
+        transactionDefinition.setReadOnly(true);
+
+        TransactionStatus status = transactionManager.getTransaction(transactionDefinition);
+```
+
+SpringConfig.xml
+
+```
+ <bean class="org.springframework.beans.factory.config.PropertyPlaceholderConfigurer">
+        <property name="location" value="classpath:jdbc.properties"></property>
+    </bean>
+
+    <bean id="dataSource" class="org.springframework.jdbc.datasource.DriverManagerDataSource">
+        <property name="driverClassName" value="${driverClassName}"></property>
+        <property name="url" value="${url}"></property>
+        <property name="username" value="${username}"></property>
+        <property name="password" value="${password}"></property>
+    </bean>
+
+    <bean id="jdbcTemplate" class="org.springframework.jdbc.core.JdbcTemplate">
+        <property name="dataSource" ref="dataSource"/>
+    </bean>
+
+    <bean id="transactionManager" class="org.springframework.jdbc.datasource.DataSourceTransactionManager">
+        <property name="dataSource" ref="dataSource"></property>
     </bean>
 ```
 
-- 2. 实现HandlerExceptionResolver接口,再在spring MVC中加入bean
+#### Spring声明式事务管理
 
 ```
-package com.ychs.ssm.day04.util;
+    <tx:advice id="myAdvice" transaction-manager="transactionManager">
+        <tx:attributes>
+            <!--这里不设置超时时间即是Spring默认配置-->
+            <tx:method name="add*" propagation="REQUIRED" read-only="false"
+                       isolation="READ_COMMITTED" timeout="10" rollback-for="java.lang.Exception"/>
+            <tx:method name="query*" read-only="true"></tx:method>
+        </tx:attributes>
+    </tx:advice>
 
-import org.springframework.web.servlet.HandlerExceptionResolver;
-import org.springframework.web.servlet.ModelAndView;
-
-import javax.servlet.http.HttpServletRequest;
-import javax.servlet.http.HttpServletResponse;
-
-/**
- * @author Mingyu Xiong
- * @description:自定义异常处理器
- * @date 2020/3/21 0:38
- */
-public class MyExceptionResolver implements HandlerExceptionResolver {
-    @Override
-    public ModelAndView resolveException(HttpServletRequest httpServletRequest,
-                                         HttpServletResponse httpServletResponse,
-                                         Object o,
-                                         Exception exception) {
-        ModelAndView modelAndView = new ModelAndView();
-
-        if (exception instanceof BusiException) {
-            modelAndView.setViewName("error/bussiError");
-            modelAndView.addObject("exception", (BusiException)exception);
-        } else {
-            modelAndView.setViewName("error/unitedError");
-        }
-        return modelAndView;
-    }
-}
-
+    <aop:config>
+        <aop:pointcut id="pointcut" expression="execution(* com.yckj.ssm.day02.services.*.*(..))"/>
+        <aop:advisor advice-ref="myAdvice" pointcut-ref="pointcut"></aop:advisor>
+    </aop:config>
 ```
-
-```
-<bean class="com.ychs.ssm.day04.util.MyExceptionResolver"></bean>
-```
-
-
 
 <hr/>
 
