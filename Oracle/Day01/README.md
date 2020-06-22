@@ -1,4 +1,4 @@
-# Oracle学习
+# Oracle
 
 > 注意:oracle用的是单引号,mysql单引号双引号都行
 >

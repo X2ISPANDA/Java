@@ -264,13 +264,11 @@ SpringConfig.xml
 
 <hr/>
 
-
-
-# Spring MVC
+## Spring MVC
 
 ***Spring MVC容器依赖于Spring容器。先加载Spring容器再加载SpringMVC容器。***
 
-## 容器Bean加载的优化
+### 容器Bean加载的优化
 
 - @Controller：SpringMVC中的标签,标注于类上,将一个类声明为SpringMVC控制器类型的Bean。
 - @RequestMapping：SpringMVC中的标签,可以标注于类上，也可以标注于方法名上，用来处理请求地址映射的注解。
@@ -284,7 +282,7 @@ SpringConfig.xml
 - Servlet获取表单中的入参需要编写大量的入参获取代码。
 - Spring学习简单,并且提供了很多个性化的功能模块。
 
-## 映射处理器
+### 映射处理器
 
 ```
  <!--开启SpringMVC注解特性标签-->
@@ -504,14 +502,14 @@ public class MyExceptionResolver implements HandlerExceptionResolver {
 
 <hr/>
 
-# Mybatis
+## Mybatis
 
 ***什么是ORM类型框架?***
 
 > ORM:Object Relational Mapping，对象关系映射结构技术，一种框架设计思想，用于实现面向对象编程语言里不同类型系统数据之间的转换。从效果上说，它其实是创建了一个可在编程语言里使用的"虚拟对象数据库”。将数据库数据模型以简单的方式映射为Java对象(POJO),通过操作Java对象来进行数据库操作，取代了复杂的sq|语句编写过程。
 > 知识扩展: Hibernate (全自动数据模型映射框架)
 
-## Mybatis框架与Spring的整合
+### Mybatis框架与Spring的整合
 
 ***SSM框架中如何使用Druid连接池***
 

@@ -75,4 +75,6 @@ synchronzied(A锁){
 	synchronized(B锁){
          
 }
-}过多的同步就有可能导致死锁
+}
+
+过多的同步就有可能导致死锁
