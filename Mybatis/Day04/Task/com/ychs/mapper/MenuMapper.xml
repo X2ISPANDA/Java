@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ychs.mapper.MenuMapper">
+    <resultMap id="menu" type="menu">
+        <id column="menuid" property="menuid"></id>
+        <result column="menuName" property="menuName"></result>
+        <result column="url" property="url"></result>
+        <result column="pid" property="pid"></result>
+        <collection property="menu" column="{menuid=menuid,roleid=roleid}" ofType="menu" select="com.ychs.mapper.MenuMapper.getMenuByMenuid">
+        </collection>
+    </resultMap>
+    <select id="getMenuByMenuid" parameterType="map" resultMap="menu">
+        select * from t_menu m1,t_menu_role mr where  m1.pid=#{menuid} and mr.roleid=#{roleid} and m1.menuid=mr.menuid
+    </select>
+</mapper>
