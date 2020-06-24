@@ -1,6 +1,6 @@
 # Nginx
 
-![img](https://x2-wrx.oss-cn-beijing.aliyuncs.com/img/94cad1c8a786c917f04d4592c33d70cf3ac757ca)
+![img](https://i.loli.net/2020/06/24/ypIkrYXMLvotbq7.jpg)
 
 ## 1. 基本概念
 
@@ -119,7 +119,7 @@ Nginx（“engine X”）是一款轻量级的Web 服务器/反向代理服务�
 
 4. 在nginx进行请求转发的配置
 
-   ![image-20200621221514079](https://x2-wrx.oss-cn-beijing.aliyuncs.com/img/image-20200621221514079.png)
+   ![image-20200621221514079](https://i.loli.net/2020/06/24/OmEzKfwvdZlDP4C.png)
 
 5. 重启nginx
 
@@ -138,7 +138,7 @@ Nginx（“engine X”）是一款轻量级的Web 服务器/反向代理服务�
 
 3. 修改配置文件
 
-   ![image-20200622043218321](https://x2-wrx.oss-cn-beijing.aliyuncs.com/img/image-20200622043218321.png)
+   ![image-20200622043218321](https://i.loli.net/2020/06/24/yMnCNYA6RFhuIBQ.png)
 
 4. 测试结果
 
@@ -158,9 +158,9 @@ Nginx（“engine X”）是一款轻量级的Web 服务器/反向代理服务�
 
 3. 在Nginx的配置文件夹中进行负载均衡的配置
 
-   ![image-20200622162821884](https://x2-wrx.oss-cn-beijing.aliyuncs.com/img/image-20200622162821884.png)
+   ![image-20200622162821884](https://i.loli.net/2020/06/24/JDe7WoiKOL9NhAV.png)
 
-![image-20200622162833968](https://x2-wrx.oss-cn-beijing.aliyuncs.com/img/image-20200622162833968.png)
+![image-20200622162833968](https://i.loli.net/2020/06/24/2j6V1DdFraTKkih.png)
 
 #### 4.2.2 主要策略
 
@@ -172,19 +172,19 @@ Nginx（“engine X”）是一款轻量级的Web 服务器/反向代理服务�
 
   根据权重分配，权重越高被分配的客户端越多。用于性能不均的情况。
 
-  ![image-20200622163616825](https://x2-wrx.oss-cn-beijing.aliyuncs.com/img/image-20200622163616825.png)
+  ![image-20200622163616825](https://i.loli.net/2020/06/24/oB1zLQ9EwxauHpU.png)
 
 - ip_hash
 
   每个请求根据ip的hash值进行分配，每个访客固定访问一个服务器，解决了session的问题。
 
-  ![image-20200622163938040](https://x2-wrx.oss-cn-beijing.aliyuncs.com/img/image-20200622163938040.png)
+  ![image-20200622163938040](https://i.loli.net/2020/06/24/x5KNsZkDFJhTVeE.png)
 
 - fair（第三方）
 
   根据后端服务器的响应时间来分配，响应时间短的优先分配。
 
-  ![image-20200622164022165](https://x2-wrx.oss-cn-beijing.aliyuncs.com/img/image-20200622164022165.png)
+  ![image-20200622164022165](https://i.loli.net/2020/06/24/M2JFGzXasIW831j.png)
 
 ### 4.3 动静分离
 
@@ -192,15 +192,15 @@ Nginx（“engine X”）是一款轻量级的Web 服务器/反向代理服务�
 
 2. 配置nginx
 
-   ![image-20200622170009939](https://x2-wrx.oss-cn-beijing.aliyuncs.com/img/image-20200622170009939.png)
+   ![image-20200622170009939](https://i.loli.net/2020/06/24/bvn13CP9VgcyXRx.png)
 
 3. 效果
 
-   ![image-20200622170601031](https://x2-wrx.oss-cn-beijing.aliyuncs.com/img/image-20200622170601031.png)
+   ![image-20200622170601031](https://i.loli.net/2020/06/24/7dh2zb8PxMjwX91.png)
 
 
 
-![image-20200622170714467](https://x2-wrx.oss-cn-beijing.aliyuncs.com/img/image-20200622170714467.png)
+![image-20200622170714467](https://i.loli.net/2020/06/24/hQqzuwtGW87Fjed.png)
 
 ### 4.4 高可用集群
 
@@ -318,7 +318,7 @@ Nginx（“engine X”）是一款轻量级的Web 服务器/反向代理服务�
 
 Nginx中同时含有两个进程，master和worker。master收到客户端请求，将任务分配给worker，worker通过争抢机制得到任务进行反向代理。
 
-![img](https://x2-wrx.oss-cn-beijing.aliyuncs.com/img/1455597-20191029103717881-58535625.png)
+![img](https://i.loli.net/2020/06/24/Z3g1YUG9qtsSPQz.png)
 
 ### 5.1 一个master和多个worker的好处
 

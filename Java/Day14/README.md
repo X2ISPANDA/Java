@@ -1,6 +1,6 @@
 # 集合
 
-![img](https://github.com/godbear329/Java_Basic_Introduction/raw/master/%E7%AC%AC6%E7%AB%A0%20%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/images/Collection_02.png)
+![img](https://i.loli.net/2020/06/24/yFetxOmnIGWjVP4.png)
 
 ##### 集合和数组的区别：
 
@@ -12,7 +12,7 @@
 
 Collection：单列集合类的根接口，用于存储一系列符合某种规则的元素，它有两个重要的子接口，分别是List和Set。其中，List的特点是元素有序、元素可重复。Set的特点是元素无序，而且不可重复。List接口的主要实现类有ArrayList和LinkedList，Set接口的主要实现类有HashSet和TreeSet。
 
-![img](https://github.com/godbear329/Java_Basic_Introduction/raw/master/%E7%AC%AC6%E7%AB%A0%20%E9%9B%86%E5%90%88%E6%A1%86%E6%9E%B6/images/Collection_05.png)
+![img](https://i.loli.net/2020/06/24/Vqsel1xGbLjhYBF.jpg)
 
 ArrayList遍历:
  	1. 普通for循环
@@ -89,7 +89,7 @@ ArrayList遍历:
 
 ## Map
 
-![QQ图片20200623025012](https://x2-wrx.oss-cn-beijing.aliyuncs.com/img/QQ图片20200623025012.png)
+![QQ图片20200623025012](https://i.loli.net/2020/06/24/8Ero5Q4sdRbx1kw.png)
 
 ### HashMap集合
 

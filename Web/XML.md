@@ -221,7 +221,7 @@ CDATA 部分不能包含字符串 "]]>"。也不允许嵌套的 CDATA 部分。
 
 - DOM
 
-  ![parse_type](E:\Usual\Java进击之路\Course\黑马49\04-JavaWeb知识(学习12天)\day01_XML&tomcat\code&资料\笔记\img\parse_type.png)
+  ![image-20200624200947122](https://i.loli.net/2020/06/24/2zeN1LciYyGEKRp.png)
 
 - SAX(Simple API for Xml)
 

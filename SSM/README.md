@@ -760,7 +760,7 @@ public class MyExceptionResolver implements HandlerExceptionResolver {
   >
   > 2、$将不会将传入的值进行预编译，select * from user where name=${name}，比如我传一个aaa，那么传过来就是 select * from user where name = aaa；
   >
-  > 3、#的优势就在于它能很大程度的防止sql注入，而$则不行。比如：用户进行一个登录操作，后台sql验证式样的：select * from user where username=#{name} and password = #{pwd}，如果前台传来的用户名是“wang”，密码是 “1 or 1=1”，用#的方式就不会出现sql注入，而如果换成$方式，sql语句就变成了 select * from user where username=wang and password = 1 or 1=1。这样的话就形成了sql注入。
+  > 3、#的优势就在于它能很大程度的防止sql注入，而\$则不行。比如：用户进行一个登录操作，后台sql验证式样的：select * from user where username=#{name} and password = #{pwd}，如果前台传来的用户名是“wang”，密码是 “1 or 1=1”，用#的方式就不会出现sql注入，而如果换成\$方式，sql语句就变成了 select * from user where username=wang and password = 1 or 1=1。这样的话就形成了sql注入。
   >
   > 4、MyBatis排序时使用order by 动态参数时需要注意，用$而不是#
 

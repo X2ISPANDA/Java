@@ -34,7 +34,7 @@
 - protected
 - public
 
-![ä¿®é¥°ç¬¦](https://img-blog.csdn.net/20171125114912312?watermark/2/text/aHR0cDovL2Jsb2cuY3Nkbi5uZXQveHFub2Rl/font/5a6L5L2T/fontsize/400/fill/I0JBQkFCMA==/dissolve/70/gravity/SouthEast)
+![ä¿®é¥°ç¬¦](https://i.loli.net/2020/06/24/M9Fk1SfOVoL5zZJ.png)
 
 ## 4. 匿名对象
 
@@ -299,15 +299,15 @@ C
 
 1．在Java中，类只支持单继承，不允许多重继承，也就是说一个类只能有一个直接父类，例如下面这种情况是不合法的。
 
-![1500704447701](https://alleniverson.gitbooks.io/java-basic-introduction/content/第3章 面向对象/img/1500704447701.png)
+![1500704447701](https://i.loli.net/2020/06/24/FqWIKXQuZv62bTJ.png)
 
 2．多个类可以继承一个父类，例如下面这种情况是允许的。
 
-![1500704467099](https://alleniverson.gitbooks.io/java-basic-introduction/content/第3章 面向对象/img/1500704467099.png)
+![1500704467099](https://i.loli.net/2020/06/24/6anqby3NfxcI28E.png)
 
 3．在Java中，多层继承是可以的，即一个类的父类可以再去继承另外的父类，例如C类继承自B类，而B类又可以去继承A类，这时，C类也可称作A类的子类。例如下面这种情况是允许的。
 
-![1500704487847](https://alleniverson.gitbooks.io/java-basic-introduction/content/第3章 面向对象/img/1500704487847.png)
+![1500704487847](C:%5CUsers%5Cxmy32%5CDesktop%5C1500704487847.png)
 
 4．在Java中，子类和父类是一种相对概念，也就是说一个类是某个类父类的同时，也可以是另一个类的子类。例如上面的示例中，B类是A类的子类，同时又是C类的父类。
 

@@ -262,8 +262,6 @@ response.sendRedirect("http://www.ychs168.com");
 - 请求头
 - 请求体
 
-![image-20191219195024338](C:\Users\XMY\AppData\Roaming\Typora\typora-user-images\image-20191219195024338.png)
-
 `响应的数据包里面同样包含三个部分内容 ：响应行、响应头、响应体`
 
 - 响应行
@@ -289,5 +287,3 @@ response.sendRedirect("http://www.ychs168.com");
   - Date ： 通讯的日期，响应的时间
 
 - 响应体
-
-![image-20191219195034532](C:\Users\XMY\AppData\Roaming\Typora\typora-user-images\image-20191219195034532.png)
