@@ -16,3 +16,9 @@
 
 ## 8. Ajax和JSON
 
+## 9. XML
+
+## 10. Nginx
+
+## 11. Redis
+

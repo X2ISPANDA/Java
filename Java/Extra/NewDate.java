@@ -17,7 +17,10 @@ import java.time.temporal.TemporalAdjusters;
  * @Author: X2
  * @Date: 2020/6/23 18:38
  */
+
 public class NewDate {
+
+    StringBuffer stringBuffer = new StringBuffer("123");
 
     @Test
     public void test01() {
