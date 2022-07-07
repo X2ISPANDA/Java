@@ -57,7 +57,7 @@
     <dependency>
       <groupId>org.springframework</groupId>
       <artifactId>spring-expression</artifactId>
-      <version>5.2.2.RELEASE</version>
+      <version>5.2.21.RELEASE</version>
     </dependency>
     <!-- 2.Spring dao依赖 -->
     <!-- spring-jdbc包括了一些如jdbcTemplate的工具类 -->
